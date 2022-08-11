@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Bar{% endblock %}
+
+{% block body %}
+
+  <div class="bar-pos">
+    <h1 class="bar-title">Mon Bar</h1>
+  </div>
+
+{% if app.user %}
+  <div>
+    <a class="button-bar-add" aria-current="page" href="{{ path('bar_add')}}">Ajouter un bar</a>
+  </div>
+{% endif %}
+
+{% for bars in bar_browse %}
+
+<div class="button-bar">
+      {% if app.user %}
+        <a class="button-bar-modify" aria-current="page" href="{{ path('bar_edit', {"id" : bars.id}) }}">Modifier</a>
+        <a class="button-bar-delete" aria-current="page" href="{{ path('bar_delete', {"id" : bars.id}) }}">Supprimer</a>
+      {% endif %}
+</div>
+
+
+  <div class="bloc-bar">   
+      <p>{{ bars.category }} {{ bars.type }}, {{ bars.name }} {{ bars.year }}</p>
+  </div>
+   
+
+{% endfor %}
+
+
+{% endblock %}
