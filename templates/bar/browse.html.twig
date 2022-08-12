@@ -18,18 +18,39 @@
 
 <div class="button-bar">
       {% if app.user %}
-        <a class="button-bar-modify" aria-current="page" href="{{ path('bar_edit', {"id" : bars.id}) }}">Modifier</a>
-        <a class="button-bar-delete" aria-current="page" href="{{ path('bar_delete', {"id" : bars.id}) }}">Supprimer</a>
+        <a class="button-bar-modify" aria-current="page" href="{{ path('bar_edit', {"id" : bars.id}) }}">Modifier le nom du bar</a>
+        <a class="button-bar-delete" aria-current="page" href="{{ path('bar_delete', {"id" : bars.id}) }}">Supprimer le bar</a>
       {% endif %}
 </div>
 
 
   <div class="bloc-bar">   
-      <p>{{ bars.category }} {{ bars.type }}, {{ bars.name }} {{ bars.year }}</p>
-  </div>
-   
+      <p>{{ bars.name }}</p>
+  </div>  
 
+  {% if app.user %}
+  <div>
+    <a class="button-drink-add" aria-current="page" href="{{ path('bar_drink_add')}}">Ajouter une boisson</a>
+  </div>
+{% endif %}
+
+  {% for drinks in drink_browse %}
+
+
+  <div class="bloc-drink">   
+      <p>{{ drinks.category }} {{ drinks.type }} {{ drinks.name }} {{ drinks.year }}</p>
+  </div>
+
+  <div class="button-drink">
+    {% if app.user %}
+      <a class="button-drink-modify" aria-current="page" href="{{ path('bar_drink_edit', {"id" : drinks.id}) }}">Modifier</a>
+      <a class="button-drink-delete" aria-current="page" href="{{ path('bar_drink_delete', {"id" : drinks.id}) }}">Supprimer</a>
+    {% endif %}
+  </div>
+  {% endfor %}
 {% endfor %}
+
+
 
 
 {% endblock %}

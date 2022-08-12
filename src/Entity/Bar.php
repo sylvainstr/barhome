@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\BarRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: BarRepository::class)]
@@ -14,32 +16,19 @@ class Bar
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $category = null;
-
-    #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?int $year = null;
+    #[ORM\OneToMany(mappedBy: 'drinks', targetEntity: Drink::class)]
+    private Collection $drinks;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $type = null;
+    public function __construct()
+    {
+        $this->drinks = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getCategory(): ?string
-    {
-        return $this->category;
-    }
-
-    public function setCategory(string $category): self
-    {
-        $this->category = $category;
-
-        return $this;
     }
 
     public function getName(): ?string
@@ -54,26 +43,32 @@ class Bar
         return $this;
     }
 
-    public function getYear(): ?int
+    /**
+     * @return Collection<int, Drink>
+     */
+    public function getDrinks(): Collection
     {
-        return $this->year;
+        return $this->drinks;
     }
 
-    public function setYear(?int $year): self
+    public function addDrink(Drink $drink): self
     {
-        $this->year = $year;
+        if (!$this->drinks->contains($drink)) {
+            $this->drinks->add($drink);
+            $drink->setDrinks($this);
+        }
 
         return $this;
     }
 
-    public function getType(): ?string
+    public function removeDrink(Drink $drink): self
     {
-        return $this->type;
-    }
-
-    public function setType(?string $type): self
-    {
-        $this->type = $type;
+        if ($this->drinks->removeElement($drink)) {
+            // set the owning side to null (unless already changed)
+            if ($drink->getDrinks() === $this) {
+                $drink->setDrinks(null);
+            }
+        }
 
         return $this;
     }

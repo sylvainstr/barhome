@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DrinkController!{% endblock %}
+
+{% block body %}
+
+<div>
+  <h1>Détails des boissons</h1>
+</div>
+
+    <a class="button-drink-return" aria-current="page" href="{{ url('bar_browse') }}">Retour</a>
+
+    <div class="drink-form">
+  {{ form_start(drink_form) }}
+    
+  {{ form_row(drink_form.category) }}
+  {{ form_row(drink_form.type) }}
+  {{ form_row(drink_form.name) }}
+  {{ form_row(drink_form.year) }}
+
+</div>
+
+
+
+  <button type="submit" class="button-drink-create">
+    {% if 'bar_drink_add' == app.request.get('_route') %}
+      Créer la boisson
+    {% else %}
+      Modifier le boisson
+    {% endif %}
+  </button>
+
+
+{{form_end(drink_form)}}
+
+{% endblock %}

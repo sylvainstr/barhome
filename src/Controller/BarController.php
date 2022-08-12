@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Bar;
 use App\Form\BarType;
 use App\Repository\BarRepository;
+use App\Repository\DrinkRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,13 +18,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class BarController extends AbstractController
 {
     #[Route('', name: 'browse')]
-    public function mybar(BarRepository $bar): Response
+    public function mybar(BarRepository $bar, DrinkRepository $drink): Response
     {
 
         $bar = $bar->findAll();
+        $drink = $drink->findAll();
 
         return $this->render('bar/browse.html.twig', [
-            'bar_browse' => $bar
+            'bar_browse' => $bar,
+            'drink_browse' => $drink
         ]);
     }
 
@@ -97,11 +100,10 @@ class BarController extends AbstractController
 
             return $this->redirectToRoute('main');
         }
-        
+
         $entityManager->remove($bar);
         $entityManager->flush();
 
         return $this->redirectToRoute('bar_browse');
     }
-
 }
