@@ -30,9 +30,17 @@
 											<img class="logo-img" src="{{ asset("assets/img/logo.svg") }}" alt="logo de bar home">
 									</a>
                 </li>
+                {% if app.user %}
+                <p>Hey {{ app.user.name }} !!</p>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url('app_logout') }}">Se déconnecter</a>
+                </li>
+                {% else %}
                 <li class="nav-item">
                   <a class="nav-link" href="{{ url('app_login') }}">Se connecter</a>
                 </li>
+                {% endif %}
+
                 {% if app.user %}
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url('bar_browse') }}">Mon bar</a>
