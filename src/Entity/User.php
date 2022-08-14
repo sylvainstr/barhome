@@ -33,7 +33,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $name = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Bar $Users = null;
+    private ?Bar $user_bar = null;
 
     public function getId(): ?int
     {
@@ -125,6 +125,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setUsers(?Bar $Users): self
     {
         $this->Users = $Users;
+
+        return $this;
+    }
+
+    public function getUserBar(): ?Bar
+    {
+        return $this->user_bar;
+    }
+
+    public function setUserBar(?Bar $user_bar): self
+    {
+        $this->user_bar = $user_bar;
 
         return $this;
     }
