@@ -1,46 +1,40 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-  {% if page == 'create' %}
+	{% if page == 'create' %}
 		Nouveau bar
 	{% else %}
 		Modifier bar
 		{{ bar.name }}
-  {% endif %}
+	{% endif %}
 {% endblock %}
 
 {% block body %}
 
-<div class="modify-bar">
-  <h1 class="bar-title-edit">Détails du Bar</h1>
-</div>
-
- 
-    <a class="button-bar-return" aria-current="page" href="{{ url('bar_browse') }}">Retour</a>
- 
+	<div class="modify-bar">
+		<h1 class="bar-title-edit">Détails du Bar</h1>
+	</div>
 
 
-<div class="bar-form">
-  {{ form_start(bar_form) }}
-    
-  {{ form_row(bar_form.name) }}
-
-</div>
+	<a class="button-bar-return" aria-current="page" href="{{ url('bar_browse') }}">Retour</a>
 
 
+	<div class="bar-form">
+		{{ form_start(bar_form) }}
 
-  <button type="submit" class="button-bar-create">
-    {% if 'bar_add' == app.request.get('_route') %}
-      Créer le bar
-    {% else %}
-      Modifier le nom du bar
-    {% endif %}
-  </button>
+		{{ form_row(bar_form.name) }}
+
+	</div>
+
+	<button type="submit" class="button-bar-create">
+		{% if 'bar_add' == app.request.get('_route') %}
+			Créer le bar
+		{% else %}
+			Modifier le nom du bar
+		{% endif %}
+	</button>
 
 
-{{form_end(bar_form)}}
-	
-
-  
+	{{form_end(bar_form)}}
 
 {% endblock %}

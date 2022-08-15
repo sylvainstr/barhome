@@ -1,56 +1,64 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mon Bar{% endblock %}
+{% block title %}Mon Bar
+{% endblock %}
 
 {% block body %}
 
-  <div class="bar-pos">
-    <h1 class="bar-title">Mon Bar</h1>
-  </div>
+	<div class="bar-pos">
+		<h1 class="bar-title">Mon Bar</h1>
+	</div>
 
-{% if app.user %}
-  <div>
-    <a class="button-bar-add" aria-current="page" href="{{ path('bar_add')}}">Ajouter un bar</a>
-  </div>
-{% endif %}
+	{% if app.user %}
+		<div>
+			<a class="button-bar-add" aria-current="page" href="{{ path('bar_add')}}">Ajouter un bar</a>
+		</div>
+	{% endif %}
 
-{% for bars in bar_browse %}
+	{% if app.user.getUserBar()|length > 0 %}
 
-<div class="button-bar">
-      {% if app.user %}
-        <a class="button-bar-modify" aria-current="page" href="{{ path('bar_edit', {"id" : bars.id}) }}">Modifier le nom du bar</a>
-        <a class="button-bar-delete" aria-current="page" href="{{ path('bar_delete', {"id" : bars.id}) }}">Supprimer le bar</a>
-      {% endif %}
-</div>
+			<div class="button-bar">
+				{% if app.user %}
+					<a class="button-bar-modify" aria-current="page" href="{{ path('bar_edit', {"id" : app.user.getUserBar().id}) }}">Modifier le nom du bar</a>
+					<a class="button-bar-delete" aria-current="page" href="{{ path('bar_delete', {"id" : app.user.getUserBar().id}) }}">Supprimer le bar</a>
+				{% endif %}
+			</div>
 
+			<div class="bloc-bar">
+				<p>{{ app.user.getUserBar().name }}</p>
+			</div>
 
-  <div class="bloc-bar">   
-      <p>{{ bars.name }}</p>
-  </div>  
+			{% if app.user %}
+				<div>
+					<a class="button-drink-add" aria-current="page" href="{{ path('bar_drink_add')}}">Ajouter une boisson</a>
+				</div>
+			{% endif %}
 
-  {% if app.user %}
-  <div>
-    <a class="button-drink-add" aria-current="page" href="{{ path('bar_drink_add')}}">Ajouter une boisson</a>
-  </div>
-{% endif %}
+			{% for drink in app.user.getUserBar().getDrinks() %}
 
-  {% for drinks in drink_browse %}
+				<div class="bloc-drink">
+					<p>
+            {{ drink.category }}
+						{{ drink.type }}
+						{{ drink.name }}
+						{{ drink.year }}
+          </p>
+				</div>
 
+				<div class="button-drink">
+					{% if app.user %}
+						<a class="button-drink-modify" aria-current="page" href="{{ path('bar_drink_edit', {"id" : drink.id}) }}">Modifier</a>
+						<a class="button-drink-delete" aria-current="page" href="{{ path('bar_drink_delete', {"id" : drink.id}) }}">Supprimer</a>
+					{% endif %}
+				</div>
 
-  <div class="bloc-drink">   
-      <p>{{ drinks.category }} {{ drinks.type }} {{ drinks.name }} {{ drinks.year }}</p>
-  </div>
+			{% endfor %}
 
-  <div class="button-drink">
-    {% if app.user %}
-      <a class="button-drink-modify" aria-current="page" href="{{ path('bar_drink_edit', {"id" : drinks.id}) }}">Modifier</a>
-      <a class="button-drink-delete" aria-current="page" href="{{ path('bar_drink_delete', {"id" : drinks.id}) }}">Supprimer</a>
-    {% endif %}
-  </div>
-  {% endfor %}
-{% endfor %}
-
-
+		{% endif %}
+	
+    <div class="share-bar">
+      <a class="button-share-bar" aria-current="page" href="{{ path('bar_browse')}}">Partager mon bar</a>
+    </div>
 
 
 {% endblock %}

@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Drink;
 use App\Form\DrinkType;
-use App\Repository\DrinkRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,6 +36,10 @@ class DrinkController extends AbstractController
 
             $entityManager = $doctrine->getManager();
 
+            /** @var User */
+            $user = $this->getUser();
+            $drink->addBar($user->getUserBar());
+            
             $entityManager->persist($drink);
             $entityManager->flush();
 

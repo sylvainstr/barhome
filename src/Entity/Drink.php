@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\DrinkRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: DrinkRepository::class)]
@@ -25,8 +27,13 @@ class Drink
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $type = null;
 
-    #[ORM\ManyToOne(inversedBy: 'drinks', targetEntity: Bar::class)]
-    private ?bar $drinks = null;
+    #[ORM\ManyToMany(targetEntity: Bar::class, inversedBy: 'drinks')]
+    private Collection $bar;
+
+    public function __construct()
+    {
+        $this->bar = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -81,15 +88,28 @@ class Drink
         return $this;
     }
 
-    public function getDrinks(): ?bar
+    /**
+     * @return Collection<int, Bar>
+     */
+    public function getBar(): Collection
     {
-        return $this->drinks;
+        return $this->bar;
     }
 
-    public function setDrinks(?bar $drinks): self
+    public function addBar(Bar $bar): self
     {
-        $this->drinks = $drinks;
+        if (!$this->bar->contains($bar)) {
+            $this->bar->add($bar);
+        }
 
         return $this;
     }
+
+    public function removeBar(Bar $bar): self
+    {
+        $this->bar->removeElement($bar);
+
+        return $this;
+    }
+
 }

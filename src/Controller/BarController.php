@@ -3,9 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Bar;
+use App\Entity\User;
 use App\Form\BarType;
 use App\Repository\BarRepository;
-use App\Repository\DrinkRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,16 +18,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class BarController extends AbstractController
 {
     #[Route('', name: 'browse')]
-    public function mybar(BarRepository $bar, DrinkRepository $drink): Response
+    public function mybar(BarRepository $barRepo): Response
     {
+        /** @var Bar */
+        // $bar = $barRepo->findOneBy(['user' => $this->getUser()]);
+        // $bar = $this->getUser()->getUserBar();
 
-        $bar = $bar->findAll();
-        $drink = $drink->findAll();
-
-        return $this->render('bar/browse.html.twig', [
-            'bar_browse' => $bar,
-            'drink_browse' => $drink
-        ]);
+        return $this->render('bar/browse.html.twig');
     }
 
     #[Route('/ajouter', name: 'add', methods: ["GET", "POST"])]
@@ -50,8 +47,15 @@ class BarController extends AbstractController
         if ($barForm->isSubmitted() && $barForm->isValid()) {
 
             $entityManager = $doctrine->getManager();
+            /** @var User */
+            $user = $this->getUser();
+            
+            $bar->setUser($user);
 
             $entityManager->persist($bar);
+
+            $entityManager->persist($user);
+
             $entityManager->flush();
 
             return $this->redirectToRoute('bar_browse');

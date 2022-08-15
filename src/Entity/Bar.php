@@ -10,66 +10,103 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: BarRepository::class)]
 class Bar
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+  #[ORM\Id]
+  #[ORM\GeneratedValue]
+  #[ORM\Column]
+  private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
+  #[ORM\Column(length: 255)]
+  private ?string $name = null;
 
-    #[ORM\OneToMany(mappedBy: 'drinks', targetEntity: Drink::class)]
-    private Collection $drinks;
+  #[ORM\Column(type: 'datetime_immutable', options: ['default' => 'CURRENT_TIMESTAMP'])]
+  private $created_at;
 
-    public function __construct()
-    {
-        $this->drinks = new ArrayCollection();
-    }
+  #[ORM\OneToOne(targetEntity:"User", inversedBy:"bar")]
+  #[ORM\JoinColumn(name:"user_id", referencedColumnName:"id")]
+  private ?User $user = null;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+  #[ORM\ManyToMany(targetEntity: Drink::class, mappedBy: 'bar', cascade: ['persist'])]
+  private Collection $drinks;
 
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
+  public function __construct()
+  {
+    $this->setCreatedAt(new \DateTimeImmutable());
+    $this->drinks = new ArrayCollection();
+  }
 
-    public function setName(string $name): self
-    {
-        $this->name = $name;
+  public function getId(): ?int
+  {
+    return $this->id;
+  }
 
-        return $this;
-    }
+  public function getName(): ?string
+  {
+    return $this->name;
+  }
 
-    /**
-     * @return Collection<int, Drink>
-     */
-    public function getDrinks(): Collection
-    {
-        return $this->drinks;
-    }
+  public function setName(string $name): self
+  {
+    $this->name = $name;
 
-    public function addDrink(Drink $drink): self
-    {
-        if (!$this->drinks->contains($drink)) {
-            $this->drinks->add($drink);
-            $drink->setDrinks($this);
-        }
+    return $this;
+  }
 
-        return $this;
-    }
+  public function getCreatedAt(): ?\DateTimeImmutable
+  {
+    return $this->created_at;
+  }
 
-    public function removeDrink(Drink $drink): self
-    {
-        if ($this->drinks->removeElement($drink)) {
-            // set the owning side to null (unless already changed)
-            if ($drink->getDrinks() === $this) {
-                $drink->setDrinks(null);
-            }
-        }
+  public function setCreatedAt(\DateTimeImmutable $created_at): self
+  {
+    $this->created_at = $created_at;
 
-        return $this;
-    }
+    return $this;
+  }
+
+  /**
+   * @return Collection<int, Drink>
+   */
+  public function getDrinks(): Collection
+  {
+      return $this->drinks;
+  }
+
+  public function addDrink(Drink $drink): self
+  {
+      if (!$this->drinks->contains($drink)) {
+          $this->drinks->add($drink);
+          $drink->addBar($this);
+      }
+
+      return $this;
+  }
+
+  public function removeDrink(Drink $drink): self
+  {
+      if ($this->drinks->removeElement($drink)) {
+          $drink->removeBar($this);
+      }
+
+      return $this;
+  }
+
+  /**
+   * Get the value of user
+   */ 
+  public function getUser()
+  {
+    return $this->user;
+  }
+
+  /**
+   * Set the value of user
+   *
+   * @return  self
+   */ 
+  public function setUser($user)
+  {
+    $this->user = $user;
+
+    return $this;
+  }
 }
