@@ -38,6 +38,13 @@ class BarController extends AbstractController
 
             return $this->redirectToRoute('main');
         }
+        /** @var User */
+        $user = $this->getUser();
+        if ($user->getUserBar()) {
+            $this->addFlash('error', "Un bar existe déjà !!");
+
+            return $this->redirectToRoute('bar_browse');
+        }
 
         $bar = new Bar();
 

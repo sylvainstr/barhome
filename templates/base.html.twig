@@ -17,6 +17,10 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
+        {% for message in app.flashes('error') %}
+			      <div class="alert alert-success" role="alert">{{ message }}</div>
+		    {% endfor %}
     </head>
 
     <body>

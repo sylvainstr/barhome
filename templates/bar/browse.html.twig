@@ -9,13 +9,14 @@
 		<h1 class="bar-title">Mon Bar</h1>
 	</div>
 
-	{% if app.user %}
+	{% if app.user.getUserBar()|length < 0 %}
 		<div>
 			<a class="button-bar-add" aria-current="page" href="{{ path('bar_add')}}">Ajouter un bar</a>
 		</div>
-	{% endif %}
+	
 
-	{% if app.user.getUserBar()|length > 0 %}
+
+	{% elseif app.user.getUserBar()|length > 0 %}
 
 			<div class="button-bar">
 				{% if app.user %}
