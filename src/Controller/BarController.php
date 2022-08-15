@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\Bar;
 use App\Entity\User;
 use App\Form\BarType;
-use App\Repository\BarRepository;
+use App\Repository\DrinkRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,13 +18,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class BarController extends AbstractController
 {
     #[Route('', name: 'browse')]
-    public function mybar(BarRepository $barRepo): Response
+    public function mybar(DrinkRepository $drinksRepo): Response
     {
-        /** @var Bar */
-        // $bar = $barRepo->findOneBy(['user' => $this->getUser()]);
-        // $bar = $this->getUser()->getUserBar();
+        /** @var User */
+        $user = $this->getUser();
+        $bar = $user->getUserBar();
+        
+        $drinks = $drinksRepo->findByBarCategory($bar);
 
-        return $this->render('bar/browse.html.twig');
+        return $this->render('bar/browse.html.twig', [
+            'drinks' => $drinks
+        ]);
     }
 
     #[Route('/ajouter', name: 'add', methods: ["GET", "POST"])]
