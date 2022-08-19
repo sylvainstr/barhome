@@ -25,7 +25,7 @@ class BarController extends AbstractController
         $bar = $user->getUserBar();
         
         $drinks = $drinksRepo->findByBarCategory($bar);
-
+        
         return $this->render('bar/browse.html.twig', [
             'drinks' => $drinks
         ]);
