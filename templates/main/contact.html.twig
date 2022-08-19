@@ -1,1 +1,66 @@
 {% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+
+  <div class="contact">
+    <h1>Me Contacter</h1>
+    <div class="contact-main">
+      <div class="contact-form">
+
+        <div class="contact-main-group">
+          {{ form_start(contact_form) }}
+          <div class="contact-group">
+            <div class="contact-item">
+              <label>Votre nom* :</label>
+              {{ form_widget(contact_form.name) }}
+            </div>
+
+            <div class="contact-item">
+              <label>Votre prénom* :</label>
+              {{ form_widget(contact_form.firstname) }}
+            </div>
+          </div>
+
+          <div class="contact-group">
+            <div class="contact-item">
+              <label>Numéro de téléphone* :</label>
+              {{ form_widget(contact_form.phone) }}
+            </div>
+
+            <div class="contact-item-mail">
+              <label>Votre adresse e-mail* :</label>
+              {{ form_widget(contact_form.email) }}
+            </div>
+          </div>
+          
+          <div class="contact-item-subject">
+            <label>Votre sujet* :</label>
+            {{ form_widget(contact_form.subject) }}
+          </div>
+
+          <div class="contact-item-message">
+            <label>Votre message* :</label>
+            {{ form_widget(contact_form.message) }}
+          </div>
+
+          <div class="button-contact">
+            <div class="button-contact">
+              <button type="submit">Envoyez le message     
+              </button>
+            </div>
+          </div> 
+
+          {{ form_end(contact_form) }}
+        </div>
+
+
+      </div>
+
+      
+  </div>
+
+
+
+{% endblock %}
