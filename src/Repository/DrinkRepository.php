@@ -40,7 +40,7 @@ class DrinkRepository extends ServiceEntityRepository
         }
     }
 
-    public function findByBarCategory(Bar $bar)
+    public function findByBarCategory(?Bar $bar)
     {
         return $this->createQueryBuilder('c')
             ->join('c.bar', 'p')
