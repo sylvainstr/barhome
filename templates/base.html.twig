@@ -7,6 +7,10 @@
 
         <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Jost:wght@500&display=swap" rel="stylesheet">
+
         <title>{% block title %}Bar Home{% endblock %}</title>
         
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
@@ -24,15 +28,15 @@
     </head>
 
     <body>
-      <div class="wrapper">
         <header>
           <nav>
-            <div class="main-nav">
-              <ul class="nav-list">
+              <ul class="main-nav">
                 <li class="nav-item">
                   <a class="logo" href="{{ url('main')}}" id="logo-name">
-											<img class="logo-img" src="{{ asset("assets/img/logo.svg") }}" alt="logo de bar home">
-									</a>
+                    <p>
+                      Bar Home
+                    </p>
+                  </a>
                 </li>
                 {% if app.user %}
                 <p>Hey {{ app.user.name }} !!</p>
@@ -51,17 +55,30 @@
                   </li>
                 {% endif %}
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url('contact') }}">Contact</a>
+                  <a class="nav-link" id="contact" href="{{ url('contact') }}">Contact</a>
                 </li>
               </ul>
-            </div>
           </nav>
         </header>
+        <div class="wrapper">
 
         {% block body %}{% endblock %}
-      </div>
-
-      <footer></footer>
+        </div>
+        <footer>            
+              <ul class="foot-list">		
+                  <li class="foot-link">
+                    <p>Développé par 
+                      <a href="https://sylvainsainteromane.com/" target="_blank"><u>Sylvain Sainte Romane</u></a>
+                    </p>
+                  </li>
+                  <li class="foot-link">
+                    <p>© Bar Home 2022</p>
+                  </li>
+                  <li class="foot-link">
+                    <a href="{{ url('app_login') }}">Je me connecte</a>
+                  </li>
+              </ul>              
+        </footer>
 
     </body>
 

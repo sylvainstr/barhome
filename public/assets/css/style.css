@@ -1,0 +1,226 @@
+*, ::before, ::after {
+  box-sizing: border-box; 
+  padding: 0; 
+  margin: 0;
+}
+
+html::-webkit-scrollbar {
+  width: 20px;
+}
+
+html::-webkit-scrollbar-track {
+  background: linear-gradient(#2C1C34, #101B25);
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  border: 5px solid transparent;
+  background-clip: content-box;
+  background-color: #FFC670;
+}
+
+body {
+  font-family: 'Arimo', 'Jost', 'sans-serif';
+  background: linear-gradient(#2C1C34, #101B25);
+}
+
+
+.wrapper {
+  margin: auto;
+  color: #FFFFFF;
+  max-width: 1596px;
+  min-height: 88vh;
+  padding-block: 5rem;
+}
+
+/* Header */
+
+header {
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  min-height: 82px;
+  max-width: 1596px;
+  margin: auto;
+}
+
+nav {
+  display: block;
+  height: 100%;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 82px;
+}
+
+.nav-item {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 19px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  list-style: none;
+  margin: 0 1rem;
+  border-radius: 1px;
+  padding: 10px 30px;
+}
+
+.nav-item p {
+  font-size: 30px;
+}
+
+.nav-item:nth-child(1) {
+  flex: 1;
+}
+
+a.nav-link,
+a#logo-name {
+  text-decoration : none;
+  color: #FFFFFF;
+}
+
+.nav-item a:hover,
+.nav-item p:hover
+{
+  color: #FFC670;
+  transition: all 1s ease-out;
+}
+
+/* Home page */
+
+.card-group {
+  display: flex;
+  gap: 3rem;
+  padding-top: 5rem;
+}
+
+
+.card-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  font-size: 18px;
+  line-height: 170%;
+}
+
+.card-bar img {
+  padding-bottom: 2rem;
+  width: 35%;
+}
+
+.card-bar p {
+  text-align: center;
+}
+
+section {
+  padding-bottom: 7rem;
+}
+
+section h2,
+h1 {
+  padding-bottom: 0.5rem;
+  font-size: 35px;
+  border-bottom: solid 3px #FFC670;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.intro {
+  display: flex;  
+}
+
+.intro-group,
+.step-group,
+.register-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.intro p {
+  max-width: 800px;
+  font-size: 18px;
+  padding-top: 5rem;
+  line-height: 170%;
+}
+
+.button-register {
+  padding-top: 7rem;
+}
+
+.button-register a
+{
+  width: 100%;
+  padding: 1rem 2rem;
+  color: #FFC670;
+  border-radius: 20px;
+  border: solid 0.2rem #FFC670;
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 20px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.button-register a:hover,
+#contact:hover{
+  background-color: #FFC670;
+  color: #000;
+  transition: all 1s ease-out;
+}
+
+#contact {
+  width: 100%;
+  padding: 1rem 2rem;
+  color: #FFC670;
+  border-radius: 20px;
+  border: solid 0.2rem #FFC670;
+}
+
+/* Footer */
+
+footer {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 5.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul.foot-list {
+  list-style: none;
+  display: flex;
+  font-size: 18px;
+  line-height: 170%;
+  text-decoration: none;
+}
+
+.foot-link p {
+  color: #FFF;
+}
+
+li.foot-link {
+  margin-right: 5rem;
+}
+
+.foot-link a {
+  text-decoration: none;
+  color: #FFC670;
+}
+
+.foot-link a:hover {
+  color: #FFC670;
+  font-weight: 700;
+}
