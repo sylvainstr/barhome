@@ -180,6 +180,7 @@ h1 {
 .button-register a:hover,
 .btn-register:hover,
 .btn-log:hover,
+.btn-contact:hover,
 #contact:hover{
   background-color: #FFC670;
   color: #000;
@@ -213,7 +214,8 @@ h1 {
 }
 
 .btn-register,
-.btn-log
+.btn-log,
+.btn-contact
 {
   width: 220px;
   padding: 1rem 2rem;
@@ -248,7 +250,8 @@ h1 {
 }
 
 .register-item,
-.log-item  {
+.log-item,
+.contact-item {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -256,14 +259,17 @@ h1 {
 }
 
 .register-item label,
-.log-part label {
+.log-part label,
+.contact-item label {
   color: #FFC670;
   font-weight: 700;
   padding-bottom: 1rem;
 }
 
 .register-item input,
-.log-part input {
+.log-part input,
+.contact-item input,
+textarea#contact_message {
   width: 400px;
   height: 54px;
   border-radius: 20px;
@@ -274,6 +280,64 @@ h1 {
   font-size: 18px;
   letter-spacing: 0.08em;
   background: transparent;
+}
+
+/* Contact */
+
+
+.contact {
+  margin: auto;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 88vh;
+}
+
+.contact-part {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.contact-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.contact-item {
+  align-items: baseline;
+}
+
+.contact-item label {
+  padding-left: 1rem;
+}
+
+.title-contact
+{
+  text-align: center;
+  border-bottom: solid 0.2rem #FFC670;
+  margin-bottom: 3rem;
+}
+
+.btn-contact
+{
+  width: 400px;
+  margin: 0;
+  margin-top: 0.5rem;
+}
+
+textarea#contact_message {
+  height: 200px;
+  padding-top: 2rem;
+  max-width: 400px;
 }
 
 /* Footer */
