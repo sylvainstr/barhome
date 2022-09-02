@@ -11,16 +11,16 @@
       {{ form_start(registrationForm) }}
 
       <div class="register-item">
-        <label>Votre adresse e-mail* :</label>
-        {{ form_widget(registrationForm.email) }}
+        {# <label>Votre adresse e-mail* :</label> #}
+        {{ form_row(registrationForm.email) }}
       </div>
       <div class="register-item">
-        <label>Votre nom* :</label>
-        {{ form_widget(registrationForm.name) }}
+        {# <label>Votre nom* :</label> #}
+        {{ form_row(registrationForm.name) }}
       </div>
       <div class="register-item">
-        <label>Votre mot de passe* :</label>
-        {{ form_widget(registrationForm.plainPassword, {label: 'Password'}) }}
+        {# <label>Votre mot de passe* :</label> #}
+        {{ form_row(registrationForm.plainPassword) }}
       </div>
 
       <div class="register-item">

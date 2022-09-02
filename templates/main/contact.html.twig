@@ -14,32 +14,32 @@
         {{ form_start(contact_form) }}
 
         <div class="contact-item">
-          <label>Votre nom* :</label>
-          {{ form_widget(contact_form.name) }}
+          {# <label>Votre nom* :</label> #}
+          {{ form_row(contact_form.name) }}
         </div>
         <div class="contact-item">
-          <label>Votre prénom* :</label>
-          {{ form_widget(contact_form.firstname) }}
+          {# <label>Votre prénom* :</label> #}
+          {{ form_row(contact_form.firstname) }}
         </div>
         <div class="contact-item">
-          <label>Numéro de téléphone :</label>
-          {{ form_widget(contact_form.phone) }}
+          {# <label>Numéro de téléphone :</label> #}
+          {{ form_row(contact_form.phone) }}
         </div>
         <div class="contact-item">
-          <label>Votre adresse e-mail* :</label>
-          {{ form_widget(contact_form.email) }}
+          {# <label>Votre adresse e-mail* :</label> #}
+          {{ form_row(contact_form.email) }}
         </div>
       </div>
 
       <div class="contact-group">
         <div class="contact-item">
-          <label>Votre sujet* :</label>
-          {{ form_widget(contact_form.subject) }}
+          {# <label>Votre sujet* :</label> #}
+          {{ form_row(contact_form.subject) }}
         </div>
 
-        <div class="contact-item">
-          <label>Votre message* :</label>
-          {{ form_widget(contact_form.message) }}
+        <div class="contact-item mess">
+          {# <label>Votre message* :</label> #}
+          {{ form_row(contact_form.message) }}
         </div>
 
         <div class="contact-item">

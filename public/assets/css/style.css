@@ -97,6 +97,14 @@ a#logo-name {
   transition: all 1s ease-out;
 }
 
+.alert {
+  color: #FFF;
+  font-size: 18px;
+  line-height: 170%;
+  text-align: center;
+  transform: translateY(375px);
+}
+
 /* Home page */
 
 .card-group {
@@ -266,6 +274,13 @@ h1 {
   padding-bottom: 1rem;
 }
 
+.register-item label
+{
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+}
+
 .register-item input,
 .log-part input,
 .contact-item input,
@@ -280,6 +295,24 @@ textarea#contact_message {
   font-size: 18px;
   letter-spacing: 0.08em;
   background: transparent;
+}
+
+.register-form .register-part li,
+.contact-part .contact-group li {
+  list-style: none;
+  width: 400px;
+  color: #FFF;
+  position: absolute;
+  transform: translateY(55px);
+}
+
+.contact-part .contact-group li {
+  padding-left: 1rem;
+  transform: translateY(60px);
+}
+
+.contact-part .contact-group .mess li{
+  transform: translateY(208px);
 }
 
 /* Contact */
@@ -318,6 +351,7 @@ textarea#contact_message {
 
 .contact-item label {
   padding-left: 1rem;
+  display: flex;
 }
 
 .title-contact

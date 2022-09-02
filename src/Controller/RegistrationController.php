@@ -43,6 +43,10 @@ class RegistrationController extends AbstractController
                 $authenticator,
                 $request
             );
+
+            $this->addFlash('success' , 'le compte a été créé');
+
+            return $this->redirectToRoute('main');
         }
 
         return $this->render('registration/register.html.twig', [
