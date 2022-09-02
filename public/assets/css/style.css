@@ -179,6 +179,7 @@ h1 {
 
 .button-register a:hover,
 .btn-register:hover,
+.btn-log:hover,
 #contact:hover{
   background-color: #FFC670;
   color: #000;
@@ -193,15 +194,17 @@ h1 {
   border: solid 0.2rem #FFC670;
 }
 
-/* Inscription */
+/* Inscription et login */
 
-.title-register {
+.title-register,
+.title-log {
   text-align: center;
   border-bottom: solid 0.2rem #FFC670;
   margin-bottom: 3rem;
 }
 
-.register-form {
+.register-form,
+.log-form {
   margin: auto;
   max-width: 600px;
   display: flex;
@@ -209,7 +212,8 @@ h1 {
   align-items: center;
 }
 
-.btn-register
+.btn-register,
+.btn-log
 {
   width: 220px;
   padding: 1rem 2rem;
@@ -223,27 +227,43 @@ h1 {
   text-transform: uppercase;
   margin-top: 3rem;
   background: transparent;
+  cursor: pointer;
 }
 
-.register-part {
+.btn-log
+{
+  width: 300px;
+}
+
+.register-part,
+.log-part {
   font-size: 18px;
   line-height: 170%;
 }
 
-.register-item {
+.log-part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register-item,
+.log-item  {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-bottom: 2rem;
 }
 
-.register-item label {
+.register-item label,
+.log-part label {
   color: #FFC670;
   font-weight: 700;
   padding-bottom: 1rem;
 }
 
-.register-item input {
+.register-item input,
+.log-part input {
   width: 400px;
   height: 54px;
   border-radius: 20px;
