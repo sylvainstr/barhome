@@ -374,6 +374,16 @@ textarea#contact_message {
   max-width: 400px;
 }
 
+/* Bar */
+
+.main-bar {
+  margin: auto;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Footer */
 
 footer {

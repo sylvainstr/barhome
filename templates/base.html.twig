@@ -44,7 +44,7 @@
                   </li>
                 {% endif %}
                 {% if app.user %}
-                <p class="user-co">Hey {{ app.user.name }} !!</p>
+                <p class="user-co">Hey {{ app.user.name|capitalize }} !!</p>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ url('app_logout') }}">Se déconnecter</a>
                 </li>
@@ -64,11 +64,11 @@
 
         {% block body %}{% endblock %}
         </div>
-        <footer>            
+        <footer>   
               <ul class="foot-list">		
                   <li class="foot-link">
                     <p>Développé par 
-                      <a href="https://sylvainsainteromane.com/" target="_blank"><u>Sylvain Sainte Romane</u></a>
+                      <a href="https://sylvainsainteromane.com/" target="_blank">Sylvain Sainte Romane</a>
                     </p>
                   </li>
                   <li class="foot-link">

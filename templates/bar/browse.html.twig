@@ -5,7 +5,7 @@
 
 {% block body %}
 
-	<div class="bar-pos">
+	<div class="main-bar">
 		<h1 class="bar-title">Mon Bar</h1>
 	</div>
 
@@ -17,6 +17,10 @@
 
 	{% elseif app.user.getUserBar()|length > 0 %}
 
+			<div class="bloc-bar">
+				<p>{{ app.user.getUserBar().name }}</p>
+			</div>
+			
 			<div class="button-bar">
 				{% if app.user %}
 					<a class="button-bar-modify" aria-current="page" href="{{ path('bar_edit', {"id" : app.user.getUserBar().id}) }}">Modifier le nom du bar</a>
@@ -24,9 +28,6 @@
 				{% endif %}
 			</div>
 
-			<div class="bloc-bar">
-				<p>{{ app.user.getUserBar().name }}</p>
-			</div>
 
 			{% if app.user %}
 				<div>
@@ -34,24 +35,30 @@
 				</div>
 			{% endif %}
 
-			{% for drink in drinks %}
 
-				<div class="bloc-drink">
-					<p>
-            {{ drink.category }}
-						{{ drink.type }}
-						{{ drink.name }}
-						{{ drink.year }}
-          </p>
-				</div>
+			{% for category,drinks in categories %}
+			
+				<h2>{{ category }}</h2>
 
-				<div class="button-drink">
-					{% if app.user %}
-						<a class="button-drink-modify" aria-current="page" href="{{ path('bar_drink_edit', {"id" : drink.id}) }}">Modifier</a>
-						<a class="button-drink-delete" aria-current="page" href="{{ path('bar_drink_delete', {"id" : drink.id}) }}">Supprimer</a>
-					{% endif %}
-				</div>
+				{% for drink in drinks %}
 
+					
+
+					<div class="bloc-drink">
+						<p>
+							{{ drink.type }}
+							{{ drink.name }}
+							{{ drink.year }}
+						</p>
+					</div>
+
+					<div class="button-drink">
+						{% if app.user %}
+							<a class="button-drink-modify" aria-current="page" href="{{ path('bar_drink_edit', {"id" : drink.id}) }}">Modifier</a>
+							<a class="button-drink-delete" aria-current="page" href="{{ path('bar_drink_delete', {"id" : drink.id}) }}">Supprimer</a>
+						{% endif %}
+					</div>
+				{% endfor %}
 			{% endfor %}
 
 	{% endif %}

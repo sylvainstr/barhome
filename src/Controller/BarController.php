@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Bar;
 use App\Entity\User;
 use App\Form\BarType;
+use App\Repository\BarRepository;
 use App\Repository\DrinkRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
@@ -23,11 +24,16 @@ class BarController extends AbstractController
         /** @var User */
         $user = $this->getUser();
         $bar = $user->getUserBar();
-        
+
         $drinks = $drinksRepo->findByBarCategory($bar);
-        
+
+        $drinksCategories = [];
+        foreach ($drinks as $drink) {
+            $drinksCategories[$drink->getCategory()][] = $drink;
+        }
+
         return $this->render('bar/browse.html.twig', [
-            'drinks' => $drinks
+            'categories' => $drinksCategories
         ]);
     }
 
@@ -60,7 +66,7 @@ class BarController extends AbstractController
             $entityManager = $doctrine->getManager();
             /** @var User */
             $user = $this->getUser();
-            
+
             $bar->setUser($user);
 
             $entityManager->persist($bar);
@@ -120,5 +126,21 @@ class BarController extends AbstractController
         $entityManager->flush();
 
         return $this->redirectToRoute('bar_browse');
+    }
+
+    #[Route('/bar/{id}', name: 'show', methods: ["GET"])]
+    public function show(Bar $bar): Response
+    {
+        $drinks = $bar->getDrinks();
+
+        $drinksCategories = [];
+        foreach ($drinks as $drink) {
+            $drinksCategories[$drink->getCategory()][] = $drink;
+        }
+
+        return $this->render('/bar/show.html.twig', [
+            'bar' => $bar,
+            'categories' => $drinksCategories,
+        ]);
     }
 }
