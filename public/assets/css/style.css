@@ -201,7 +201,7 @@ h1 {
 .btn-log:hover,
 .btn-contact:hover,
 .button-bar-create:hover,
-.button-drink-create:hover
+.button-drink-create:hover,
 #contact:hover{
   background-color: #FFC670;
   color: #000;
@@ -407,6 +407,10 @@ textarea#contact_message {
   margin-bottom: 3rem;
 }
 
+h1.bar-title {
+  margin-bottom: 4rem;
+}
+
 .btn-contact
 {
   width: 400px;
@@ -478,12 +482,26 @@ textarea#contact_message {
   font-weight: 700;
 }
 
+.consult-bar {
+  margin: auto;
+  max-width: 600px;
+  border: solid 0.2rem #FFC670;
+  border-radius: 20px;
+  padding-block: 4rem;
+  padding-inline: 2rem;
+  box-shadow: rgb(0 0 0 / 45%) 0px 25px 20px -20px;
+}
+
 .category-group h2 {
   color: #FFC670;
   font-size: 36px;
   line-height: 170%;
   font-weight: 700;
   padding-top: 1rem;
+}
+
+.category-group .category-consult {
+  padding-top: 0;
 }
 
 .bloc-drink p {
@@ -568,6 +586,12 @@ textarea#contact_message {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
+}
+
+.cocktail img{
+  width: 100px;
+  position: absolute;
+  transform: translate(390px, -15px);
 }
 
 .show-bar {

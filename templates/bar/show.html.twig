@@ -5,21 +5,28 @@
 
 {% block body %}
 
-	<div class="main-bar">
-		<h1 class="bar-title">{{ bar.name }}</h1>
-	</div>
+<div class="main-bar">
+  <h1 class="bar-title">{{ bar.name }}</h1>
+</div>
 
+<div class="consult-bar">
 
-{% for category,drinks in categories  %}
-  <h2>{{ category }}</h2>
+  <div class="cocktail">
+    <img src="{{ asset("assets/img/cocktail.png") }}" alt="image d'un cocktail">
+  </div>
 
-  {% for drink in drinks %}
-    <p>{{ drink.name }}</p>
-  {% endfor %}
+  <div class="category-group">
+    {% for category,drinks in categories  %}
+      <h2 class="category-consult">{{ category }}</h2>
 
-{% endfor %}
+      <div class="bloc-drink">
+      {% for drink in drinks %}
+        <p>{{ drink.name }}</p>
+      {% endfor %}
+      </div>
 
-
-
+    {% endfor %}
+  </div>
+</div>
 
 {% endblock %}

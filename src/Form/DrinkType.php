@@ -15,7 +15,7 @@ class DrinkType extends AbstractType
     {
         $builder
         ->add('category',TextType::class, [
-            "label" => "Catégorie de la boisson",
+            "label" => "Catégorie de la boisson*",
             'attr' => ['placeholder' => "Veuillez renseigner la boisson"],
             'required' => true
         ])
@@ -25,7 +25,7 @@ class DrinkType extends AbstractType
             'required' => false
         ])
         ->add('name',TextType::class, [
-            "label" => "Nom de la boisson",
+            "label" => "Nom de la boisson*",
             'attr' => ['placeholder' => "Veuillez renseigner le nom"],
             'required' => true
         ])
