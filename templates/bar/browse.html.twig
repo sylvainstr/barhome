@@ -29,10 +29,10 @@
 					
 					<ul class="dropdown">
 						<li>
-							<a aria-current="page" href="{{ path('bar_delete', {"id" : app.user.getUserBar().id}) }}">Oui je suis sure !</a>
+							<a class="dropdown-item-green" href="{{ path('bar_delete', {"id" : app.user.getUserBar().id}) }}">Oui je suis sure !</a>
 						</li>
 						<li>
-							<a class="dropdown-item" href="#">Non</a>
+							<a class="dropdown-item-red" href="#">Non</a>
 						</li>
 					</ul>
 
@@ -45,7 +45,7 @@
 
 					<div>
 						<a aria-current="page" title="ajouter une boisson" href="{{ path('bar_drink_add')}}">
-							<img src="{{ asset("assets/img/add.png") }}" alt="image d'un cocktail">
+							<img src="{{ asset("assets/img/add.png") }}" alt="image d'un signe d'ajout">
 						</a>
 					</div>
 
@@ -92,7 +92,7 @@
 		{% endif %}
 
 		<div class="show-bar">
-			<a class="button-show-bar" aria-current="page" href="{{ path('bar_show', {"id" : 15 }) }}">Afficher mon bar</a>
+			<a class="button-show-bar" aria-current="page" href="{{ path('bar_show', {"id" : 22 }) }}">Afficher mon bar</a>
 		</div>
 	</div>
 

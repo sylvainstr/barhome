@@ -200,6 +200,7 @@ h1 {
 .btn-register:hover,
 .btn-log:hover,
 .btn-contact:hover,
+.button-bar-create:hover,
 #contact:hover{
   background-color: #FFC670;
   color: #000;
@@ -217,14 +218,16 @@ h1 {
 /* Inscription et login */
 
 .title-register,
-.title-log {
+.title-log,
+.bar-title-edit {
   text-align: center;
   border-bottom: solid 0.2rem #FFC670;
   margin-bottom: 3rem;
 }
 
 .register-form,
-.log-form {
+.log-form,
+.modify-bar {
   margin: auto;
   max-width: 600px;
   display: flex;
@@ -234,7 +237,8 @@ h1 {
 
 .btn-register,
 .btn-log,
-.btn-contact
+.btn-contact,
+.button-bar-create
 {
   width: 220px;
   padding: 1rem 2rem;
@@ -251,15 +255,24 @@ h1 {
   cursor: pointer;
 }
 
+.button-bar-create {
+  width: 320px;
+}
+
 .btn-log
 {
   width: 300px;
 }
 
 .register-part,
-.log-part {
+.log-part,
+.bar-form {
   font-size: 18px;
   line-height: 170%;
+}
+
+.bar-form {
+  padding-bottom: 2rem;
 }
 
 .log-part {
@@ -277,6 +290,10 @@ h1 {
   padding-bottom: 2rem;
 }
 
+.bar-item {
+  padding-top: 3rem;
+}
+
 .register-item label,
 .log-part label,
 .contact-item label {
@@ -285,7 +302,8 @@ h1 {
   padding-bottom: 1rem;
 }
 
-.register-item label
+.register-item label,
+.bar-item label
 {
   display: flex;
   flex-direction: column;
@@ -295,6 +313,7 @@ h1 {
 .register-item input,
 .log-part input,
 .contact-item input,
+.bar-item input,
 textarea#contact_message {
   width: 400px;
   height: 54px;
@@ -410,11 +429,11 @@ textarea#contact_message {
 }
 
 .dropdown {
-  display: block;
   transform: translate(11rem, 2rem);
 }
 
 .dropdown a {
+  display: none;
   color: #FFF;
   text-decoration: none;
   font-size: 18px;
@@ -423,13 +442,13 @@ textarea#contact_message {
   padding: 1rem 1rem;
 }
 
-.dropdown a:hover {
+.dropdown .dropdown-item-green:hover {
   color: green;
   font-weight: 700;
   transition: all 1s ease-out;
 }
 
-.dropdown .dropdown-item:hover {
+.dropdown .dropdown-item-red:hover {
   font-weight: 700;
   color: red;
   transition: all 1s ease-out;
@@ -485,7 +504,9 @@ textarea#contact_message {
 
 .button-bar-modify,
 .button-bar-delete,
-.button-show-bar {
+.button-show-bar,
+.button-bar-return,
+.button-bar-add {
   width: 100%;
   padding: 1rem 1rem;
   border: solid 0.2rem #FFC670;
@@ -497,6 +518,10 @@ textarea#contact_message {
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
+}
+
+.button-bar-return {
+  width: 20%;
 }
 
 .button-bar-modify {
@@ -535,7 +560,8 @@ textarea#contact_message {
 .button-bar-modify:hover,
 .button-bar-delete:hover,
 .button-show-bar:hover,
-.button-drink-add:hover
+.button-drink-add:hover,
+.button-bar-return:hover
 {
   background-color: #FFC670;
   color: #000;

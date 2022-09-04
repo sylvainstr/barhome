@@ -14,7 +14,8 @@ class BarType extends AbstractType
     {
         $builder
             ->add('name',TextType::class, [
-                "label" => "Nom",
+                "label" => "Nom de votre Bar",
+                'attr' => ['placeholder' => "Veuillez saisir un nom de bar"],
                 'required' => true
             ]);
     }
