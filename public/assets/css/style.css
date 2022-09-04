@@ -452,14 +452,16 @@ textarea#contact_message {
   transform: translate(11rem, 2rem);
 }
 
-.dropdown a {
+.delete-message {
   display: none;
+}
+
+.dropdown a {
   color: #FFF;
   text-decoration: none;
   font-size: 18px;
   line-height: 170%;
   border-radius: 20px;
-  padding: 1rem 1rem;
 }
 
 .dropdown .dropdown-item-green:hover {
@@ -511,9 +513,12 @@ textarea#contact_message {
   font-weight: 400;
 }
 
-.drink-add,
 .category-group {
-  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 70%;
+  margin: auto;
 }
 
 .group-bloc {
@@ -527,7 +532,7 @@ textarea#contact_message {
 }
 
 .button-drink {
-  padding-right: 30rem;
+  padding-right: 25rem;
 }
 
 .button-bar {
@@ -567,6 +572,7 @@ textarea#contact_message {
 .drink-add {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding-block: 4rem;
   gap: 1rem;
 }
@@ -604,7 +610,8 @@ textarea#contact_message {
 .button-show-bar:hover,
 .button-drink-add:hover,
 .button-bar-return:hover,
-.button-drink-return:hover
+.button-drink-return:hover,
+.button-bar-add:hover
 {
   background-color: #FFC670;
   color: #000;

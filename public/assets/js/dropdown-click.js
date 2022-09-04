@@ -1,26 +1,21 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
+  const deleteBtn = document.querySelector(".button-bar-delete");
+  const dropItems = document.querySelector(".delete-message");
+  const cancelDelete = document.querySelector("#cancel-delete");
 
-  const dropBtn = document.querySelector('.button-bar-delete');
-  const dropItems = document.querySelector('.dropdown a');
+  deleteBtn.addEventListener("click", () => {
+      toggleDisplay(dropItems);
+  });
 
-  dropBtn.addEventListener('click',()=>{
+  cancelDelete.addEventListener("click", () => {
+    toggleDisplay(dropItems);
+  });
 
-    if (dropItems.style.display === 'none') {
-      dropItems.style.display = 'block'
+  const toggleDisplay = (item) => {
+    if (item.style.display === "none" || item.style.display === "") {
+      item.style.display = "block";
     } else {
-      dropItems.style.display = 'none'
+      item.style.display = "none";
     }
-
-  })
-
-  // dropItems.forEach(item => {
-  //   item.addEventListener('click', (e)=>{
-  //     if (e.target.item.style.display === 'none') {
-  //       item.style.display = 'block'
-  //     } else {
-  //       item.style.display = 'none'
-  //     }
-  //   })
-  // })
-
+  };
 });
