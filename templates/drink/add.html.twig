@@ -4,21 +4,27 @@
 
 {% block body %}
 
-<div>
+<div class="modify-drink">
   <h1>Détails des boissons</h1>
-</div>
 
     <a class="button-drink-return" aria-current="page" href="{{ url('bar_browse') }}">Retour</a>
 
     <div class="drink-form">
-  {{ form_start(drink_form) }}
-    
-  {{ form_row(drink_form.category) }}
-  {{ form_row(drink_form.type) }}
-  {{ form_row(drink_form.name) }}
-  {{ form_row(drink_form.year) }}
+      {{ form_start(drink_form) }}
+      <div class="drink-item">
+      {{ form_row(drink_form.category) }}
+      </div>
+      <div class="drink-item">
+      {{ form_row(drink_form.type) }}
+      </div>
+      <div class="drink-item">
+      {{ form_row(drink_form.name) }}
+      </div>
+      <div class="drink-item">
+      {{ form_row(drink_form.year) }}
+      </div>
 
-</div>
+    </div>
 
 
 
@@ -29,6 +35,7 @@
       Modifier le boisson
     {% endif %}
   </button>
+</div>
 
 
 {{form_end(drink_form)}}

@@ -201,6 +201,7 @@ h1 {
 .btn-log:hover,
 .btn-contact:hover,
 .button-bar-create:hover,
+.button-drink-create:hover
 #contact:hover{
   background-color: #FFC670;
   color: #000;
@@ -225,9 +226,14 @@ h1 {
   margin-bottom: 3rem;
 }
 
+.modify-drink h1 {
+  margin-bottom: 3rem;
+}
+
 .register-form,
 .log-form,
-.modify-bar {
+.modify-bar,
+.modify-drink {
   margin: auto;
   max-width: 600px;
   display: flex;
@@ -238,7 +244,8 @@ h1 {
 .btn-register,
 .btn-log,
 .btn-contact,
-.button-bar-create
+.button-bar-create,
+.button-drink-create
 {
   width: 220px;
   padding: 1rem 2rem;
@@ -259,6 +266,10 @@ h1 {
   width: 320px;
 }
 
+.button-drink-create {
+  width: 330px;
+}
+
 .btn-log
 {
   width: 300px;
@@ -266,12 +277,14 @@ h1 {
 
 .register-part,
 .log-part,
-.bar-form {
+.bar-form,
+.drink-form {
   font-size: 18px;
   line-height: 170%;
 }
 
-.bar-form {
+.bar-form,
+.drink-form {
   padding-bottom: 2rem;
 }
 
@@ -290,7 +303,8 @@ h1 {
   padding-bottom: 2rem;
 }
 
-.bar-item {
+.bar-item,
+.drink-item {
   padding-top: 3rem;
 }
 
@@ -303,7 +317,8 @@ h1 {
 }
 
 .register-item label,
-.bar-item label
+.bar-item label,
+.drink-item label
 {
   display: flex;
   flex-direction: column;
@@ -314,6 +329,7 @@ h1 {
 .log-part input,
 .contact-item input,
 .bar-item input,
+.drink-item input,
 textarea#contact_message {
   width: 400px;
   height: 54px;
@@ -506,6 +522,7 @@ textarea#contact_message {
 .button-bar-delete,
 .button-show-bar,
 .button-bar-return,
+.button-drink-return,
 .button-bar-add {
   width: 100%;
   padding: 1rem 1rem;
@@ -520,7 +537,8 @@ textarea#contact_message {
   cursor: pointer;
 }
 
-.button-bar-return {
+.button-bar-return,
+.button-drink-return {
   width: 20%;
 }
 
@@ -561,7 +579,8 @@ textarea#contact_message {
 .button-bar-delete:hover,
 .button-show-bar:hover,
 .button-drink-add:hover,
-.button-bar-return:hover
+.button-bar-return:hover,
+.button-drink-return:hover
 {
   background-color: #FFC670;
   color: #000;
