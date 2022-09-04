@@ -9,63 +9,91 @@
 		<h1 class="bar-title">Mon Bar</h1>
 	</div>
 
+	<div class="bar-home">
 
-	{% if app.user.getUserBar() == null %}
-		<div>
-			<a class="button-bar-add" aria-current="page" href="{{ path('bar_add')}}">Ajouter un bar</a>
-		</div>
+		{% if app.user.getUserBar() == null %}
+			<div>
+				<a class="button-bar-add" aria-current="page" href="{{ path('bar_add')}}">Ajouter un bar</a>
+			</div>
 
-	{% elseif app.user.getUserBar()|length > 0 %}
+		{% elseif app.user.getUserBar()|length > 0 %}
 
 			<div class="bloc-bar">
 				<p>{{ app.user.getUserBar().name }}</p>
 			</div>
-			
+
 			<div class="button-bar">
 				{% if app.user %}
 					<a class="button-bar-modify" aria-current="page" href="{{ path('bar_edit', {"id" : app.user.getUserBar().id}) }}">Modifier le nom du bar</a>
-					<a class="button-bar-delete" aria-current="page" href="{{ path('bar_delete', {"id" : app.user.getUserBar().id}) }}">Supprimer le bar</a>
+					<a class="button-bar-delete" aria-current="page" >Supprimer le bar</a>
+					
+					<ul class="dropdown">
+						<li>
+							<a aria-current="page" href="{{ path('bar_delete', {"id" : app.user.getUserBar().id}) }}">Oui je suis sure !</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">Non</a>
+						</li>
+					</ul>
+
 				{% endif %}
 			</div>
 
-
 			{% if app.user %}
-				<div>
-					<a class="button-drink-add" aria-current="page" href="{{ path('bar_drink_add')}}">Ajouter une boisson</a>
+
+				<div class="drink-add">
+
+					<div>
+						<a aria-current="page" title="ajouter une boisson" href="{{ path('bar_drink_add')}}">
+							<img src="{{ asset("assets/img/add.png") }}" alt="image d'un cocktail">
+						</a>
+					</div>
+
+					<div>
+						<a class="button-drink-add" aria-current="page" href="{{ path('bar_drink_add')}}">
+							Ajouter une boisson
+						</a>
+					</div>
+
 				</div>
 			{% endif %}
 
+			<div class="category-group">
+				{% for category,drinks in categories %}
 
-			{% for category,drinks in categories %}
-			
-				<h2>{{ category }}</h2>
+					<h2>{{ category|capitalize }}</h2>
 
-				{% for drink in drinks %}
+					{% for drink in drinks %}
 
-					
 
-					<div class="bloc-drink">
-						<p>
-							{{ drink.type }}
-							{{ drink.name }}
-							{{ drink.year }}
-						</p>
-					</div>
+						<div class="group-bloc">
+							<div class="bloc-drink">
+								<p>
+									{{ drink.type|capitalize }}
+									{{ drink.name|capitalize }}
+									{{ drink.year }}
+								</p>
+							</div>
 
-					<div class="button-drink">
-						{% if app.user %}
-							<a class="button-drink-modify" aria-current="page" href="{{ path('bar_drink_edit', {"id" : drink.id}) }}">Modifier</a>
-							<a class="button-drink-delete" aria-current="page" href="{{ path('bar_drink_delete', {"id" : drink.id}) }}">Supprimer</a>
-						{% endif %}
-					</div>
+							<div class="button-drink">
+								{% if app.user %}
+									<a class="button-drink-modify" aria-current="page" title="modifier" href="{{ path('bar_drink_edit', {"id" : drink.id}) }}">
+										<img src="{{ asset("assets/img/modify.png") }}" alt="image d'un crayon pour modifier"></a>
+									<a class="button-drink-delete" aria-current="page" title="supprimer" href="{{ path('bar_drink_delete', {"id" : drink.id}) }}">
+										<img src="{{ asset("assets/img/delete.png") }}" alt="image d'une poubelle">
+									</a>
+								{% endif %}
+							</div>
+						</div>
+					{% endfor %}
 				{% endfor %}
-			{% endfor %}
+			</div>
 
-	{% endif %}
-	
-    <div class="share-bar">
-      <a class="button-share-bar" aria-current="page" href="{{ path('bar_browse')}}">Partager mon bar</a>
-    </div>
+		{% endif %}
 
+		<div class="show-bar">
+			<a class="button-show-bar" aria-current="page" href="{{ path('bar_show', {"id" : 15 }) }}">Afficher mon bar</a>
+		</div>
+	</div>
 
 {% endblock %}

@@ -105,6 +105,17 @@ a#logo-name {
   transform: translateY(375px);
 }
 
+.alert a {
+  font-size: 18px;
+  line-height: 170%;
+  color: #FFC670;
+  text-decoration: none;
+}
+
+.alert a:hover {
+  font-weight: 700;
+}
+
 /* Home page */
 
 .card-group {
@@ -382,6 +393,153 @@ textarea#contact_message {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.bar-home{
+  margin: auto;
+  max-width: 1000px;
+  padding-top: 4rem;
+}
+
+.name-bar-bloc {
+  display: flex;
+}
+
+.dropdown li {
+  list-style: none;
+}
+
+.dropdown {
+  display: block;
+  transform: translate(11rem, 2rem);
+}
+
+.dropdown a {
+  color: #FFF;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 170%;
+  border-radius: 20px;
+  padding: 1rem 1rem;
+}
+
+.dropdown a:hover {
+  color: green;
+  font-weight: 700;
+  transition: all 1s ease-out;
+}
+
+.dropdown .dropdown-item:hover {
+  font-weight: 700;
+  color: red;
+  transition: all 1s ease-out;
+}
+
+.bloc-bar {
+  color: #FFF;
+  text-align: center;
+  font-size: 36px;
+  line-height: 170%;
+  font-weight: 700;
+}
+
+.category-group h2 {
+  color: #FFC670;
+  font-size: 36px;
+  line-height: 170%;
+  font-weight: 700;
+  padding-top: 1rem;
+}
+
+.bloc-drink p {
+  color: #FFF;
+  font-size: 20px;
+  line-height: 170%;
+  font-weight: 400;
+}
+
+.drink-add,
+.category-group {
+  padding-left: 2rem;
+}
+
+.group-bloc {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button-drink img {
+  width: 25px;
+}
+
+.button-drink {
+  padding-right: 30rem;
+}
+
+.button-bar {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+.button-bar-modify,
+.button-bar-delete,
+.button-show-bar {
+  width: 100%;
+  padding: 1rem 1rem;
+  border: solid 0.2rem #FFC670;
+  border-radius: 20px;
+  color: #FFC670;
+  font-family: 'Jost';
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button-bar-modify {
+  margin-right: 1rem;
+}
+
+.drink-add {
+  display: flex;
+  align-items: center;
+  padding-block: 4rem;
+  gap: 1rem;
+}
+
+.drink-add img {
+  width: 30px;
+}
+
+.button-drink-add {
+  width: 100%;
+  padding: 1rem 1rem;
+  border: solid 0.2rem #FFC670;
+  border-radius: 20px;
+  color: #FFC670;
+  font-family: 'Jost';
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.show-bar {
+  padding-top: 8rem;
+  text-align: center;
+}
+
+.button-bar-modify:hover,
+.button-bar-delete:hover,
+.button-show-bar:hover,
+.button-drink-add:hover
+{
+  background-color: #FFC670;
+  color: #000;
+  transition: all 1s ease-out;
 }
 
 /* Footer */

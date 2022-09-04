@@ -128,7 +128,7 @@ class BarController extends AbstractController
         return $this->redirectToRoute('bar_browse');
     }
 
-    #[Route('/bar/{id}', name: 'show', methods: ["GET"])]
+    #[Route('/{id}', name: 'show', methods: ["GET"])]
     public function show(Bar $bar): Response
     {
         $drinks = $bar->getDrinks();

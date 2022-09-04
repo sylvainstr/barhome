@@ -9,8 +9,8 @@
     {% endif %}
 
     {% if app.user %}
-        <div class="mb-3">
-            Vous êtes connecté(e) comme {{ app.user.name }}, <a href="{{ path('app_logout') }}">Me déconnecter</a>
+        <div class="alert">
+            Vous êtes connecté(e) comme {{ app.user.name|capitalize }}, <a href="{{ path('app_logout') }}">Me déconnecter</a>
         </div>
     {% endif %}
 
