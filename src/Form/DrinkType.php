@@ -18,12 +18,7 @@ class DrinkType extends AbstractType
             "label" => "Catégorie de la boisson*",
             'attr' => ['placeholder' => "Veuillez renseigner la boisson"],
             'required' => true
-        ])
-        ->add('type',TextType::class, [
-            "label" => "Rouge/Rosé/Blanc",
-            'attr' => ['placeholder' => "Veuillez renseigner le type"],
-            'required' => false
-        ])
+        ])        
         ->add('name',TextType::class, [
             "label" => "Nom de la boisson*",
             'attr' => ['placeholder' => "Veuillez renseigner le nom"],

@@ -24,9 +24,6 @@ class Drink
     #[ORM\Column(nullable: true)]
     private ?int $year = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $type = null;
-
     #[ORM\ManyToMany(targetEntity: Bar::class, inversedBy: 'drinks')]
     private Collection $bar;
 
@@ -75,19 +72,7 @@ class Drink
 
         return $this;
     }
-
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(?string $type): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
+  
     /**
      * @return Collection<int, Bar>
      */

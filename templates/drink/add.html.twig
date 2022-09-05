@@ -15,9 +15,6 @@
       {{ form_row(drink_form.category) }}
       </div>
       <div class="drink-item">
-      {{ form_row(drink_form.type) }}
-      </div>
-      <div class="drink-item">
       {{ form_row(drink_form.name) }}
       </div>
       <div class="drink-item">
@@ -32,7 +29,7 @@
     {% if 'bar_drink_add' == app.request.get('_route') %}
       Créer la boisson
     {% else %}
-      Modifier le boisson
+      Modifier la boisson
     {% endif %}
   </button>
 </div>
