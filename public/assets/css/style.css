@@ -618,6 +618,15 @@ textarea#contact_message {
   transition: all 1s ease-out;
 }
 
+.drink-item li {
+  list-style: none;
+  width: 400px;
+  color: #FFF;
+  position: absolute;
+  padding-left: 1rem;
+  transform: translateY(55px);
+}
+
 /* Footer */
 
 footer {
