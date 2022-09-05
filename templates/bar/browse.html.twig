@@ -61,7 +61,7 @@
 			<div class="category-group">
 				{% for category,drinks in categories %}
 
-					<h2>{{ category|capitalize }}</h2>
+					<h2>{{ category|title }}</h2>
 
 					{% for drink in drinks %}
 
@@ -69,7 +69,7 @@
 						<div class="group-bloc">
 							<div class="bloc-drink">
 								<p>
-									{{ drink.name|capitalize }}
+									{{ drink.name|title }}
 									{{ drink.year }}
 								</p>
 							</div>

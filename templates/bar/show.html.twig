@@ -11,18 +11,20 @@
 
 <div class="consult-bar">
 
+  <h2 class="title-card-bar">Faites votre choix !!</h2>
+
   <div class="cocktail">
     <img src="{{ asset("assets/img/cocktail.png") }}" alt="image d'un cocktail">
   </div>
 
   <div class="category-group">
     {% for category,drinks in categories  %}
-      <h2 class="category-consult">{{ category|capitalize }}</h2>
+      <h2 class="category-consult">{{ category|title }}</h2>
 
       <div class="bloc-drink">
       {% for drink in drinks %}
         <p>	
-          {{ drink.name|capitalize }}
+          {{ drink.name|title }}
           {{ drink.year }}
         </p>
       {% endfor %}
