@@ -45,6 +45,66 @@ header {
   margin: auto;
 }
 
+.nav-mob {  
+  display: none;
+}
+
+.burger {
+  display:block;
+  position:relative;
+  padding:0;
+  width:45px;
+  height:45px;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+}
+
+.bar {
+  display:block;
+  width:45px;
+  height:4px;
+  border-radius:3px;
+  background: #FFC670;;
+  transition: all .5s ease-in-out;
+}
+
+.bar::before, .bar::after {
+  content:"";
+  width:45px;
+  height:4px;
+  position:absolute;
+  left:0;
+  background: #FFC670;;
+  border-radius: 3px;
+  transition: all .5s ease-in-out;
+}
+
+.bar::before {
+  transform:translateY(-12px)
+}
+
+.bar::after {
+  transform:translateY(12px)
+}
+
+.show-nav .bar {
+  width:0;
+  background:transparent;
+}
+
+.show-nav .bar::before {
+  transform:rotate(45deg);
+}
+
+.show-nav .bar::after {
+  transform:rotate(-45deg);
+}
+
+.contact-mob {
+  display: none;
+}
+
 .user-co {
   color: #FFC670;
   font-size: 18px;
@@ -664,4 +724,93 @@ li.foot-link {
 .foot-link a:hover {
   color: #FFC670;
   font-weight: 700;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 1050px) {
+
+  .nav-mob {  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 82px;
+    padding-inline: 2rem;
+  }
+
+  .main-nav {
+    display: none;
+  }
+  
+  .contact-mob {
+    display: block;
+  }
+
+  .contact-mob a {
+    width: 100%;
+    padding: 1rem 2rem;
+    color: #FFC670;
+    border-radius: 20px;
+    border: solid 0.2rem #FFC670;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 19px;
+    letter-spacing: 0.1em;
+  }
+
+  .contact-mob a:hover {
+    background-color: #FFC670;
+    color: #000;
+    transition: all 1s ease-out;
+  }
+
+  .main-nav.show-nav {
+    transition: all .8s ease;
+    transform: translateX(0);
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  }
+
+  .main-nav {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40vh;
+    padding-block: 2rem;
+    background: #FFC670;
+    transition: all .8s ease;
+    transform: translateY(-130%);
+    width: 100%;
+}
+
+#contact {
+  width: 100%;
+  color: #FFF;
+  border-radius: 20px;
+}
+
+.nav-item li {
+  color: #000;
+}
+
+.nav-item a:hover,
+.nav-item p:hover
+{
+  color: #000;
+  transition: all 1s ease-out;
+}
+
+.user-co {
+  color: #FFF;
+  font-size: 18px;
+  line-height: 170%;
+}
+
+.nav-item:nth-child(1) {
+  flex: 0;
+}
+  
 }
