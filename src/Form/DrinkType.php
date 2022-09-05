@@ -21,7 +21,7 @@ class DrinkType extends AbstractType
             'constraints' => [ 
                 new Regex(
                     [
-                        'pattern' => '/^[\p{Ll}À-ÖØ-öø-ÿ-]+$/',
+                        'pattern' => '/^[\s\p{Ll}À-ÖØ-öø-ÿ-]+$/',
                         'message' => 'Votre texte doit être en minuscule'
                     ]
                 ),
@@ -34,7 +34,7 @@ class DrinkType extends AbstractType
             'constraints' => [ 
                 new Regex(
                     [
-                        'pattern' => '/^[\p{Ll}À-ÖØ-öø-ÿ-]+$/',
+                        'pattern' => '/^[\s\d\p{Ll}À-ÖØ-öø-ÿ-]+$/',
                         'message' => 'Votre texte doit être en minuscule'
                     ]
                 ),
