@@ -1,6 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DrinkController!{% endblock %}
+{% block title %}
+	{% if page == 'create' %}
+		Ajouter une boisson
+	{% else %}
+		Modifier une boisson
+	{% endif %}
+{% endblock %}
 
 {% block body %}
 
