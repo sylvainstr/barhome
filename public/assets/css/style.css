@@ -622,6 +622,10 @@ textarea#contact_message {
   cursor: pointer;
 }
 
+a.button-bar-add {
+  margin-inline: 11rem;
+}
+
 .button-bar-return,
 .button-drink-return {
   width: 20%;
@@ -750,6 +754,16 @@ li.foot-link {
 
 /* Responsive */
 
+@media screen and (max-width: 1200px) {
+
+  .card-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+}
+
 @media screen and (max-width: 1050px) {
 
   .nav-mob {  
@@ -833,5 +847,228 @@ li.foot-link {
 
   .nav-item:nth-child(1) {
     flex: 0;
+  }
+}
+
+@media screen and (max-width: 900px) {
+
+  .intro {
+    display: flex;
+    padding-inline: 3rem;
+  }
+
+  ul.foot-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  li.foot-link {
+    margin-right: 0;
+  }
+
+  .contact-part {
+    display: flex;
+    flex-direction: column;
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+
+  .button-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+  }
+
+  .button-bar-modify,
+  .button-bar-delete,
+  .button-show-bar,
+  .button-bar-return,
+  .button-drink-return,
+  .button-bar-add {
+    width: 340px;
+  }
+
+  .button-bar-modify {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  ul.dropdown.delete-message {
+    transform: translateX(10px);
+    padding-top: 1rem;
+  }
+
+  .category-group {
+    max-width: 55%;
+  }
+
+  .button-bar-return,
+  .button-drink-return {
+    width: 125px;
+  }
+
+  .consult-bar {
+    max-width: 550px;
+    padding-inline: 0rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  .intro {
+    display: flex;
+    padding-inline: 3rem;
+  }
+
+  section h2,
+  h1 {
+    font-size: 26px;
+  }
+
+  .intro p,
+  .card-bar {
+    font-size: 17px;
+  }
+  
+  .intro p {
+    padding-top: 3rem;
+  }
+
+  .category-group {
+    max-width: 65%;
+  }
+
+  a.button-bar-add {
+    margin-inline: 9rem;
+  }
+
+  .consult-bar {
+    max-width: 500px;
+  }
+
+  .cocktail img {
+    transform: translate(360px, -15px);
+  }
+}
+
+@media screen and (max-width: 550px) {
+
+  .category-group {
+    max-width: 75%;
+  }
+
+  a.button-bar-add {
+    margin-inline: 6rem;
+  }
+
+  .consult-bar {
+    max-width: 400px;
+  }
+
+  .title-card-bar {
+    font-size: 35px;
+  }
+
+  .category-group h2 {
+    font-size: 32px;
+  }
+
+  .cocktail img {
+    width: 95px;
+    transform: translate(270px, -15px);
+  }
+}
+
+@media screen and (max-width: 450px) {
+
+  .intro {
+    padding-inline: 1rem;
+  }
+
+  section h2,
+  h1 {
+    font-size: 22px;
+  }
+
+  .intro p,
+  .card-bar {
+    font-size: 16px;
+  }
+
+  .card-bar {
+    padding-inline: 1rem;
+  }
+
+  .register-item input,
+  .log-part input,
+  .contact-item input,
+  .bar-item input,
+  .drink-item input,
+  textarea#contact_message
+  {
+    width: 320px;
+  }
+
+  .btn-contact {
+    width: 325px;
+    font-size: 20px;
+  }
+
+  .contact-part .contact-group li {
+    font-size: 14px;
+  }
+
+  .category-group {
+    max-width: 85%;
+  }
+
+  a.button-bar-add {
+    margin-inline: 2.5rem;
+  }
+
+  .title-card-bar {
+    font-size: 32px;
+  }
+
+  .category-group h2 {
+    font-size: 30px;
+  }
+
+  .cocktail img {
+    width: 91px;
+    transform: translate(259px, -22px);
+  }
+}
+
+@media screen and (max-width: 390px) {
+
+  .cocktail img {
+    width: 91px;
+    transform: translate(223px, -22px);
+  }
+}
+
+@media screen and (max-width: 350px) {
+
+  .button-bar-modify,
+  .button-bar-delete
+  {
+    width: 325px;
+  }
+
+  .drink-add img {
+    display: none;
+  }
+
+  .title-card-bar {
+    font-size: 30px;
+  }
+
+  .cocktail img {
+    width: 91px;
+    transform: translate(190px, -22px);
   }
 }
