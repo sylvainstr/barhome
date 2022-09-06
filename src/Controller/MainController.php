@@ -38,7 +38,7 @@ class MainController extends AbstractController
             ];
             $mail->send(
                 $contact->get('email')->getData(),
-                'sylvain.sainteromane@gmail.com',
+                'contact@barhome.com',
                 'Bar Home - Contact',
                 'contact',
                 $context
@@ -46,7 +46,7 @@ class MainController extends AbstractController
             
             // accusé réception
             $mail->send(
-                'sylvain.sainteromane@gmail.com',
+                'contact@barhome.com',
                 $contact->get('email')->getData(),
                 "Bar Home - Nous avons bien reçu votre message",
                 'message_confirmation',
