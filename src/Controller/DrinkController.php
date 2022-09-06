@@ -38,7 +38,7 @@ class DrinkController extends AbstractController
 
             /** @var User */
             $user = $this->getUser();
-            $drink->addBar($user->getUserBar());
+            $drink->addBar($user->getBar());
             
             $entityManager->persist($drink);
             $entityManager->flush();

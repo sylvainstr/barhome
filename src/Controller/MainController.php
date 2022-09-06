@@ -4,9 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Bar;
 use App\Form\ContactType;
-use App\Repository\BarRepository;
 use App\Service\SendMailService;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -62,6 +60,22 @@ class MainController extends AbstractController
             'contact_form' => $form->createView()
         ]);
         
+    }
+
+    #[Route('/{id}', name: 'show', methods: ["GET"], requirements: ["id" => "\d+"])]
+    public function show(Bar $bar): Response
+    {
+        $drinks = $bar->getDrinks();
+
+        $drinksCategories = [];
+        foreach ($drinks as $drink) {
+            $drinksCategories[$drink->getCategory()][] = $drink;
+        }
+
+        return $this->render('/main/show.html.twig', [
+            'bar' => $bar,
+            'categories' => $drinksCategories,
+        ]);
     }
 
 }

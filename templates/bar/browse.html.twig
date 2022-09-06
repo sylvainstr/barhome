@@ -11,25 +11,25 @@
 
 	<div class="bar-home">
 
-		{% if app.user.getUserBar() == null %}
+		{% if app.user.getBar() == null %}
 			<div>
 				<a class="button-bar-add" aria-current="page" href="{{ path('bar_add')}}">Ajouter un bar</a>
 			</div>
 
-		{% elseif app.user.getUserBar()|length > 0 %}
+		{% elseif app.user.getBar()|length > 0 %}
 
 			<div class="bloc-bar">
-				<p>{{ app.user.getUserBar().name }}</p>
+				<p>{{ app.user.getBar().name }}</p>
 			</div>
 
 			<div class="button-bar">
 				{% if app.user %}
-					<a class="button-bar-modify" aria-current="page" href="{{ path('bar_edit', {"id" : app.user.getUserBar().id}) }}">Modifier le nom du bar</a>
+					<a class="button-bar-modify" aria-current="page" href="{{ path('bar_edit', {"id" : app.user.getBar().id}) }}">Modifier le nom du bar</a>
 					<a class="button-bar-delete" aria-current="page" >Supprimer le bar</a>
 					
 					<ul class="dropdown delete-message">
 						<li>
-							<a class="dropdown-item-green" href="{{ path('bar_delete', {"id" : app.user.getUserBar().id}) }}">Oui je suis sûr(e) !</a>
+							<a class="dropdown-item-green" href="{{ path('bar_delete', {"id" : app.user.getBar().id}) }}">Oui je suis sûr(e) !</a>
 						</li>
 						<li>
 							<a class="dropdown-item-red" id="cancel-delete" href="#">Non</a>
@@ -89,9 +89,9 @@
 			</div>
 
 		{% endif %}
-
+	
 		<div class="show-bar">
-			<a class="button-show-bar" aria-current="page" href="{{ path('bar_show', {"id" : 29 }) }}">Afficher mon bar</a>
+			<a class="button-show-bar" aria-current="page" href="{{ path('show', {"id" : app.user.bar.id }) }}">Afficher mon bar</a>
 		</div>
 		
 	</div>

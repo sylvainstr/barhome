@@ -33,7 +33,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $name = null;
 
     #[ORM\OneToOne(targetEntity:"Bar", mappedBy: "user")]
-    private ?Bar $user_bar = null;
+    private ?Bar $bar = null;
 
     #[ORM\Column(type: 'datetime_immutable', options: ['default' => 'CURRENT_TIMESTAMP'])]
     private $created_at;
@@ -124,26 +124,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getUsers(): ?Bar
+    public function getBar(): ?Bar
     {
-        return $this->Users;
+        return $this->bar;
     }
 
-    public function setUsers(?Bar $Users): self
+    public function setBar(?Bar $bar): self
     {
-        $this->Users = $Users;
-
-        return $this;
-    }
-
-    public function getUserBar(): ?Bar
-    {
-        return $this->user_bar;
-    }
-
-    public function setUserBar(?Bar $user_bar): self
-    {
-        $this->user_bar = $user_bar;
+        $this->bar = $bar;
 
         return $this;
     }
