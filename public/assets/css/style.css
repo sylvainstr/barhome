@@ -157,6 +157,13 @@ a#logo-name {
   transition: all 1s ease-out;
 }
 
+.alert-mess {
+  color: #FFF;
+  font-size: 18px;
+  line-height: 170%;
+  text-align: center;
+}
+
 .alert {
   color: #FFF;
   font-size: 18px;

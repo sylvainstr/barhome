@@ -52,7 +52,7 @@ class MainController extends AbstractController
             );
             
             $this->addFlash('success', 'Vore message a bien été envoyé');
-            return $this->redirectToRoute('homepage');
+            return $this->redirectToRoute('main');
          
         }
 
