@@ -19,6 +19,10 @@ html::-webkit-scrollbar-thumb {
   background-color: #FFC670;
 }
 
+::selection {
+  color: #FFC670;
+}
+
 body {
   font-family: 'Arimo', 'Jost', 'sans-serif';
   background: linear-gradient(#2C1C34, #101B25);
@@ -630,7 +634,22 @@ textarea#contact_message {
 }
 
 a.button-bar-add {
-  margin-inline: 11rem;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 230px;
+}
+
+.text-bar {
+  font-size: 20px;
+  line-height: 170%;
+  padding-bottom: 4rem;
+  padding-inline: 2rem;
+  text-align: center;
+}
+
+.bold {
+  font-weight: 700;
 }
 
 .button-bar-return,
@@ -877,7 +896,6 @@ li.foot-link {
     display: flex;
     flex-direction: column;
   }
-
 }
 
 @media screen and (max-width: 700px) {
@@ -921,6 +939,10 @@ li.foot-link {
     max-width: 550px;
     padding-inline: 0rem;
   }
+
+  .text-bar {
+    font-size: 18px;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -948,10 +970,6 @@ li.foot-link {
     max-width: 65%;
   }
 
-  a.button-bar-add {
-    margin-inline: 9rem;
-  }
-
   .consult-bar {
     max-width: 500px;
   }
@@ -965,10 +983,6 @@ li.foot-link {
 
   .category-group {
     max-width: 75%;
-  }
-
-  a.button-bar-add {
-    margin-inline: 6rem;
   }
 
   .consult-bar {
@@ -1032,10 +1046,6 @@ li.foot-link {
     max-width: 85%;
   }
 
-  a.button-bar-add {
-    margin-inline: 2.5rem;
-  }
-
   .title-card-bar {
     font-size: 32px;
   }
@@ -1047,6 +1057,10 @@ li.foot-link {
   .cocktail img {
     width: 91px;
     transform: translate(259px, -22px);
+  }
+
+  .text-bar {
+    padding-inline: 1rem;
   }
 }
 

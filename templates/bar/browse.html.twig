@@ -12,9 +12,13 @@
 	<div class="bar-home">
 
 		{% if app.user.getBar() == null %}
+			<div class="text-bar">
+				<p>Maintenant que vous êtes inscrit, vous allez pouvoir créer votre <span class="bold">Bar</span> et y ajouter toutes les boissons que vous souhaitez partager, en cliquant sur le bouton ci-dessous.</p>
+			</div>
 			<div>
 				<a class="button-bar-add" aria-current="page" href="{{ path('bar_add')}}">Ajouter un bar</a>
 			</div>
+
 
 		{% elseif app.user.getBar()|length > 0 %}
 
