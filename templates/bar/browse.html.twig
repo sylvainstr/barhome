@@ -25,8 +25,8 @@
 			<div class="button-bar">
 				{% if app.user %}
 					<a class="button-bar-modify" aria-current="page" href="{{ path('bar_edit', {"id" : app.user.getBar().id}) }}">Modifier le nom du bar</a>
-					<a class="button-bar-delete" aria-current="page" >Supprimer le bar</a>
-					
+					<a class="button-bar-delete" aria-current="page">Supprimer le bar</a>
+
 					<ul class="dropdown delete-message">
 						<li>
 							<a class="dropdown-item-green" href="{{ path('bar_delete', {"id" : app.user.getBar().id}) }}">Oui je suis sûr(e) !</a>
@@ -89,11 +89,13 @@
 			</div>
 
 		{% endif %}
-	
-		<div class="show-bar">
-			<a class="button-show-bar" aria-current="page" href="{{ path('show', {"id" : app.user.bar.id }) }}">Afficher mon bar</a>
-		</div>
-		
+
+		{% if app.user.bar is defined and app.user.bar is not null %}
+			<div class="show-bar">
+				<a class="button-show-bar" aria-current="page" href="{{ path('show', {"id" : app.user.bar.id }) }}">Afficher mon bar</a>
+			</div>
+		{% endif %}
+
 	</div>
 
 {% endblock %}
