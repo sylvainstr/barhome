@@ -35,13 +35,6 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
 
-        {% for message in app.flashes('error') %}
-			      <div class="alert-mess" role="alert">{{ message }}</div>
-		    {% endfor %}
-
-        {% for message in app.flashes('success') %}
-			    <div class="alert-mess" role="alert">{{ message }}</div>
-		    {% endfor %}
 
     </head>
 
@@ -90,6 +83,15 @@
             </ul>
           </nav>
         </header>
+
+        {% for message in app.flashes('error') %}
+			      <div class="alert-mess" role="alert">{{ message }}</div>
+		    {% endfor %}
+
+        {% for message in app.flashes('success') %}
+			    <div class="alert-mess" role="alert">{{ message }}</div>
+		    {% endfor %}
+        
         <div class="wrapper">
 
         {% block body %}{% endblock %}
