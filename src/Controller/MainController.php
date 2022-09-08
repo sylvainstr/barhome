@@ -51,7 +51,7 @@ class MainController extends AbstractController
                 $context
             );
             
-            $this->addFlash('success', 'Vore message a bien été envoyé');
+            $this->addFlash('success', 'Votre message a bien été envoyé !!');
             return $this->redirectToRoute('main');
          
         }
