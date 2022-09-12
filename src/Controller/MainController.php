@@ -84,7 +84,7 @@ class MainController extends AbstractController
     ]);
   }
 
-  #[Route('/{id}', name: 'show', methods: ["GET"], requirements: ["id" => "\d+"])]
+  #[Route('/{slug}', name: 'show', methods: ["GET"], requirements: ["id" => "\d+"])]
   public function show(Bar $bar): Response
   {
     $drinks = $bar->getDrinks();
@@ -97,6 +97,7 @@ class MainController extends AbstractController
     return $this->render('/main/show.html.twig', [
       'bar' => $bar,
       'categories' => $drinksCategories,
+      'slug' => $bar->getSlug()
     ]);
   }
 }

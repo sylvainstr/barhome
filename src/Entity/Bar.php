@@ -6,7 +6,7 @@ use App\Repository\BarRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\OrderBy;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: BarRepository::class)]
 class Bar
@@ -28,6 +28,15 @@ class Bar
 
   #[ORM\ManyToMany(targetEntity: Drink::class, mappedBy: 'bar', cascade: ['persist'])]
   private Collection $drinks;
+
+  #[Gedmo\Slug(fields: ["name"])]
+  #[ORM\Column(length: 255)]
+  private ?string $slug = null;
+
+  public function __toString()
+  {
+    return $this->name;
+  }
 
   public function __construct()
   {
@@ -109,5 +118,17 @@ class Bar
     $this->user = $user;
 
     return $this;
+  }
+
+  public function getSlug(): ?string
+  {
+      return $this->slug;
+  }
+
+  public function setSlug(string $slug): self
+  {
+      $this->slug = $slug;
+
+      return $this;
   }
 }
