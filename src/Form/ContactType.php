@@ -62,6 +62,7 @@ class ContactType extends AbstractType
             ->add('phone',TextType::class, [
                 "label" => "Numéro de téléphone :",
                 'attr' => ['placeholder' => "Exemple : 0600000000"],
+                'required' => false,
                 'constraints' => [ 
                     new Regex(
                         [
