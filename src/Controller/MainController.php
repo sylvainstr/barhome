@@ -40,7 +40,7 @@ class MainController extends AbstractController
       
       $messageBus->dispatch(
         new SendMailMessage(
-          $contact->get('email')->getData(),
+          'contact@barhome.com',
           'contact@barhome.com',
           'Bar Home - Contact',
           'contact',
