@@ -28,6 +28,7 @@ class MainController extends AbstractController
     $contact = $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
+
       $context = [
         'name' => $contact->get('name')->getData(),
         'firstname' => $contact->get('firstname')->getData(),
@@ -37,43 +38,43 @@ class MainController extends AbstractController
         'message' => $contact->get('message')->getData(),
       ];
       
-      // $messageBus->dispatch(
-      //   new SendMailMessage(
-      //     $contact->get('email')->getData(),
-      //     'contact@barhome.com',
-      //     'Bar Home - Contact',
-      //     'contact',
-      //     $context
-      //   )
-      // );
-
-      $mail->send(
+      $messageBus->dispatch(
+        new SendMailMessage(
           $contact->get('email')->getData(),
           'contact@barhome.com',
           'Bar Home - Contact',
           'contact',
           $context
+        )
       );
+
+      // $mail->send(
+      //     $contact->get('email')->getData(),
+      //     'contact@barhome.com',
+      //     'Bar Home - Contact',
+      //     'contact',
+      //     $context
+      // );
 
       // accusé réception
 
-      // $messageBus->dispatch(
-      //   new SendMailMessage(
-      //     'contact@barhome.com',
-      //     $contact->get('email')->getData(),
-      //     "Bar Home - Nous avons bien reçu votre message",
-      //     'message_confirmation',
-      //     $context
-      //   )
-      // );
-
-      $mail->send(
-        'contact@barhome.com',
-        $contact->get('email')->getData(),
-        "Bar Home - Nous avons bien reçu votre message",
-        'message_confirmation',
-        $context
+      $messageBus->dispatch(
+        new SendMailMessage(
+          'contact@barhome.com',
+          $contact->get('email')->getData(),
+          "Bar Home - Nous avons bien reçu votre message",
+          'message_confirmation',
+          $context
+        )
       );
+
+      // $mail->send(
+      //   'contact@barhome.com',
+      //   $contact->get('email')->getData(),
+      //   "Bar Home - Nous avons bien reçu votre message",
+      //   'message_confirmation',
+      //   $context
+      // );
 
       $this->addFlash('success', 'Votre message a bien été envoyé !!');
       return $this->redirectToRoute('main');
@@ -84,7 +85,7 @@ class MainController extends AbstractController
     ]);
   }
 
-  #[Route('/{slug}', name: 'show', methods: ["GET"], requirements: ["id" => "\d+"])]
+  #[Route('/bar/{slug}', name: 'show', methods: ["GET"])]
   public function show(Bar $bar): Response
   {
     $drinks = $bar->getDrinks();
@@ -93,11 +94,12 @@ class MainController extends AbstractController
     foreach ($drinks as $drink) {
       $drinksCategories[$drink->getCategory()][] = $drink;
     }
+
+    ksort($drinksCategories);
     
     return $this->render('/main/show.html.twig', [
       'bar' => $bar,
-      'categories' => $drinksCategories,
-      'slug' => $bar->getSlug()
+      'categories' => $drinksCategories
     ]);
   }
 }

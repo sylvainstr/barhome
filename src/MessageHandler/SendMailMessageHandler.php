@@ -17,11 +17,11 @@ final class SendMailMessageHandler implements MessageHandlerInterface
 
   public function __invoke(SendMailMessage $message)
   {
-    $from = $message->getFrom;
-    $to = $message->getTo;
-    $subject = $message->getSubject;
-    $template = $message->getTemplate;
-    $context = $message->getContext;
+    $from = $message->getFrom();
+    $to = $message->getTo();
+    $subject = $message->getSubject();
+    $template = $message->getTemplate();
+    $context = $message->getContext();
 
     $this->mail->send($from, $to, $subject, $template, $context);
   }

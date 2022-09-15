@@ -1,3 +1,7 @@
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+
 DirectoryIndex index.php
 
 # By default, Apache does not evaluate symbolic links if you did not enable this
