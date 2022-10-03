@@ -6,11 +6,16 @@ use App\Entity\Bar;
 use App\Form\ContactType;
 use App\Message\SendMailMessage;
 use App\Service\SendMailService;
+use Endroid\QrCode\Builder\BuilderInterface;
+use Endroid\QrCode\Encoding\Encoding;
+use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelHigh;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class MainController extends AbstractController
 {
@@ -37,7 +42,7 @@ class MainController extends AbstractController
         'subject' => $contact->get('subject')->getData(),
         'message' => $contact->get('message')->getData(),
       ];
-      
+
       $messageBus->dispatch(
         new SendMailMessage(
           $contact->get('email')->getData(),
@@ -96,10 +101,71 @@ class MainController extends AbstractController
     }
 
     ksort($drinksCategories);
-    
+
     return $this->render('/main/show.html.twig', [
       'bar' => $bar,
       'categories' => $drinksCategories
+    ]);
+  }
+
+  private $builder;
+
+  public function __construct(BuilderInterface $builder)
+  {
+    $this->builder = $builder;
+  }
+
+  #[Route('/qrcode', name: 'qrcode', methods: ["GET"])]
+  public function qrcode(): Response
+  {
+    /** @var User */
+    $user = $this->getUser();
+
+    $qrCode = null;
+
+    $objDateTime = new \DateTime(datetime: 'now');
+    $dataString = $objDateTime->format(format: 'd-m-Y');
+
+
+
+    $url = $this->generateUrl('show', [
+      'slug' => $user->getBar()->getSlug()
+    ], UrlGeneratorInterface::ABSOLUTE_URL);
+
+    // $url = "https://www.barhome.fr/qrcode/";
+
+    // set le qrcode
+    $result = $this->builder
+      ->data(data: $url)
+      ->encoding(new Encoding('UTF-8'))
+      ->errorCorrectionLevel(new ErrorCorrectionLevelHigh())
+      ->size(400)
+      ->margin(10)
+      // ->labelText($dataString)
+      ->build();
+
+    // génére le name
+    // $namePng = uniqid(prefix: '', more_entropy:'') . '.png';
+
+    $namePng = $user->getCryptedId() . '.png';
+
+    $filesystem = new Filesystem();
+
+    $fileName = \dirname(path: __DIR__, levels: 2) . '/public/assets/qr-code/' . $namePng;
+
+    // Création de l'image QRcode
+    if (!$filesystem->exists($fileName)) {
+      $result->saveToFile($fileName);
+
+      // récupérer l'url de l'image
+      // $qrCode = $result->getDataUri();
+    }
+
+    // header('Content-Type: '.$result->getMimeType());
+    // echo $result->getString();
+
+    return $this->render('/main/qrcode.html.twig', [
+      'qrCode' => 'assets/qr-code/' . $namePng
     ]);
   }
 }

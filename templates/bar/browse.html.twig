@@ -95,8 +95,14 @@
 		{% endif %}
 
 		{% if app.user.bar is defined and app.user.bar is not null %}
-			<div class="show-bar">
-				<a class="button-show-bar" aria-current="page" href="{{ path('show', {'slug': app.user.bar.slug }) }}">Afficher mon bar</a>
+			<div class="group-btn-bar">
+				<div class="show-bar">
+					<a class="button-show-bar" aria-current="page" href="{{ path('show', {'slug': app.user.bar.slug }) }}">Afficher mon bar</a>
+				</div>
+
+				<div class="qrcode-bar">
+					<a class="button-qrcode-bar" aria-current="page" href="{{ path('qrcode') }}">Afficher mon QR code</a>
+				</div>
 			</div>
 		{% endif %}
 

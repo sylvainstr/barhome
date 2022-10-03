@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon QR code
+{% endblock %}
+
+{% block body %}
+  <div class="qrcode-main">
+
+    <h1 class="title-qrcode">Mon QR Code</h1>
+
+    <div class="qrcode">
+
+      {% if qrCode %}
+        <img src="{{ qrCode }}" alt="qr-code">
+      {% endif %}
+
+    </div>
+
+    <div class="download-qrcode">
+      <a class="dl-link" href="{{ asset('/assets/qr-code/' ~ app.user.cryptedId ~ '.png') }}">
+        <div class="qrcode-value">
+          <p>Télécharger mon QR code</p>  
+        </div>
+      </a>
+    </div>
+
+  </div>
+
+{% endblock %}

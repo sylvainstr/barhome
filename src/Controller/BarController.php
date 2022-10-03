@@ -9,6 +9,7 @@ use App\Repository\DrinkRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -87,6 +88,10 @@ class BarController extends AbstractController
     #[Route('/modifier/{id}', name: 'edit', methods: ["GET", "POST"])]
     public function edit(Request $request, Bar $bar, ManagerRegistry $doctrine): Response
     {
+
+        /** @var User */
+        $user = $this->getUser();
+
         if (empty($this->getUser())) {
 
             return $this->redirectToRoute('main');
@@ -100,6 +105,22 @@ class BarController extends AbstractController
             $entityManager = $doctrine->getManager();
 
             $entityManager->flush();
+
+            // si l'image QR code existe, on supprime l'image QR code
+
+            $namePng = $user->getCryptedId() . '.png';
+
+            $filesystem = new Filesystem();
+
+            $fileName = \dirname(path: __DIR__, levels: 2) . '/public/assets/qr-code/' . $namePng;
+
+            // Création de l'image QRcode
+            if ($filesystem->exists($fileName)) {
+
+                $filesystem->remove($fileName);
+            }
+
+
 
             return $this->redirectToRoute('bar_browse');
         }
