@@ -1,0 +1,45 @@
+[06-Sep-2022 15:37:50 UTC] PHP Warning:  require_once(/home/qmoq0336/barhome/vendor/autoload_runtime.php): Failed to open stream: No such file or directory in /home/qmoq0336/barhome/public/index.php on line 5
+[06-Sep-2022 15:37:50 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/qmoq0336/barhome/vendor/autoload_runtime.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/qmoq0336/barhome/public/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/qmoq0336/barhome/public/index.php on line 5
+[06-Sep-2022 15:39:02 UTC] PHP Warning:  require_once(/home/qmoq0336/barhome/vendor/autoload_runtime.php): Failed to open stream: No such file or directory in /home/qmoq0336/barhome/public/index.php on line 5
+[06-Sep-2022 15:39:02 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/qmoq0336/barhome/vendor/autoload_runtime.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/qmoq0336/barhome/public/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/qmoq0336/barhome/public/index.php on line 5
+[06-Sep-2022 15:39:03 UTC] PHP Warning:  require_once(/home/qmoq0336/barhome/vendor/autoload_runtime.php): Failed to open stream: No such file or directory in /home/qmoq0336/barhome/public/index.php on line 5
+[06-Sep-2022 15:39:03 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/qmoq0336/barhome/vendor/autoload_runtime.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/qmoq0336/barhome/public/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/qmoq0336/barhome/public/index.php on line 5
+[06-Sep-2022 15:39:03 UTC] PHP Warning:  require_once(/home/qmoq0336/barhome/vendor/autoload_runtime.php): Failed to open stream: No such file or directory in /home/qmoq0336/barhome/public/index.php on line 5
+[06-Sep-2022 15:39:03 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/qmoq0336/barhome/vendor/autoload_runtime.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/qmoq0336/barhome/public/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/qmoq0336/barhome/public/index.php on line 5
+[06-Sep-2022 15:39:03 UTC] PHP Warning:  require_once(/home/qmoq0336/barhome/vendor/autoload_runtime.php): Failed to open stream: No such file or directory in /home/qmoq0336/barhome/public/index.php on line 5
+[06-Sep-2022 15:39:03 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/qmoq0336/barhome/vendor/autoload_runtime.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/qmoq0336/barhome/public/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/qmoq0336/barhome/public/index.php on line 5
+[06-Sep-2022 15:39:19 UTC] PHP Warning:  require_once(/home/qmoq0336/barhome/vendor/autoload_runtime.php): Failed to open stream: No such file or directory in /home/qmoq0336/barhome/public/index.php on line 5
+[06-Sep-2022 15:39:19 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/qmoq0336/barhome/vendor/autoload_runtime.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/qmoq0336/barhome/public/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/qmoq0336/barhome/public/index.php on line 5
+[06-Sep-2022 15:39:41 UTC] PHP Warning:  require_once(/home/qmoq0336/barhome/vendor/autoload_runtime.php): Failed to open stream: No such file or directory in /home/qmoq0336/barhome/public/index.php on line 5
+[06-Sep-2022 15:39:41 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/qmoq0336/barhome/vendor/autoload_runtime.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/qmoq0336/barhome/public/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/qmoq0336/barhome/public/index.php on line 5
+[06-Sep-2022 15:47:41 UTC] PHP Warning:  require_once(/home/qmoq0336/barhome/vendor/autoload_runtime.php): Failed to open stream: No such file or directory in /home/qmoq0336/barhome/public/index.php on line 5
+[06-Sep-2022 15:47:41 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/qmoq0336/barhome/vendor/autoload_runtime.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/qmoq0336/barhome/public/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/qmoq0336/barhome/public/index.php on line 5
+[06-Sep-2022 15:47:41 UTC] PHP Warning:  require_once(/home/qmoq0336/barhome/vendor/autoload_runtime.php): Failed to open stream: No such file or directory in /home/qmoq0336/barhome/public/index.php on line 5
+[06-Sep-2022 15:47:41 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/qmoq0336/barhome/vendor/autoload_runtime.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/qmoq0336/barhome/public/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/qmoq0336/barhome/public/index.php on line 5
