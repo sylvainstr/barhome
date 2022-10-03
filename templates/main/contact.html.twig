@@ -42,12 +42,15 @@
           {{ form_row(contact_form.message) }}
         </div>
 
+        {{ form_row(contact_form.captcha) }} 
+        {{ form_errors(contact_form.captcha) }} 
+
         <div class="contact-item">
           <button type="submit" class="btn-contact">Envoyez le message
           </button>
         </div>
       </div>
-
+  
         {{ form_end(contact_form) }}
     </div>
       
