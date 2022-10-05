@@ -7,52 +7,58 @@
 
 	<div class="contact">
 		<h1 class="title-contact">Me Contacter</h1>
-      
-    <div class="contact-part">
 
-      <div class="contact-group">
-        {{ form_start(contact_form) }}
+		{{ form_start(contact_form) }}
+		<div class="contact-part">
 
-        <div class="contact-item">
-          {# <label>Votre nom* :</label> #}
-          {{ form_row(contact_form.name) }}
-        </div>
-        <div class="contact-item">
-          {# <label>Votre prénom* :</label> #}
-          {{ form_row(contact_form.firstname) }}
-        </div>
-        <div class="contact-item">
-          {# <label>Numéro de téléphone :</label> #}
-          {{ form_row(contact_form.phone) }}
-        </div>
-        <div class="contact-item">
-          {# <label>Votre adresse e-mail* :</label> #}
-          {{ form_row(contact_form.email) }}
-        </div>
-      </div>
+			<div class="contact-group">
 
-      <div class="contact-group">
-        <div class="contact-item">
-          {# <label>Votre sujet* :</label> #}
-          {{ form_row(contact_form.subject) }}
-        </div>
+				<div
+					class="contact-item">
+					{# <label>Votre nom* :</label> #}
+					{{ form_row(contact_form.name) }}
+				</div>
+				<div
+					class="contact-item">
+					{# <label>Votre prénom* :</label> #}
+					{{ form_row(contact_form.firstname) }}
+				</div>
+				<div
+					class="contact-item">
+					{# <label>Numéro de téléphone :</label> #}
+					{{ form_row(contact_form.phone) }}
+				</div>
+				<div
+					class="contact-item">
+					{# <label>Votre adresse e-mail* :</label> #}
+					{{ form_row(contact_form.email) }}
+				</div>
+			</div>
 
-        <div class="contact-item mess">
-          {# <label>Votre message* :</label> #}
-          {{ form_row(contact_form.message) }}
-        </div>
+			<div class="contact-group">
+				<div
+					class="contact-item">
+					{# <label>Votre sujet* :</label> #}
+					{{ form_row(contact_form.subject) }}
+				</div>
 
-        {{ form_row(contact_form.captcha) }} 
-        {# {{ form_errors(contact_form.captcha) }} #}
+				<div
+					class="contact-item mess">
+					{# <label>Votre message* :</label> #}
+					{{ form_row(contact_form.message) }}
+				</div>
 
-        <div class="contact-item">
-          <button type="submit" class="btn-contact">Envoyez le message
-          </button>
-        </div>
-      </div>
-        {{ form_end(contact_form) }}
-    </div>
-      
+				{{ form_row(contact_form.captcha) }}
+				{# {{ form_errors(contact_form.captcha) }} #}
+
+				<div class="contact-item">
+					<button type="submit" class="btn-contact">Envoyez le message
+					</button>
+				</div>
+			</div>
+		</div>
+		{{ form_end(contact_form) }}
+
 	</div>
 
 
