@@ -1,117 +1,133 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
+		<link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Jost:wght@500&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link
+		href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Jost:wght@500&display=swap" rel="stylesheet">
 
-        {# Favicon #}
+		{# Favicon #}
 
-      <link rel="apple-touch-icon" sizes="180x180" href="{{ asset("favicon/apple-touch-icon.png") }}">
-      <link rel="icon" type="image/png" sizes="32x32" href="{{ asset("favicon/favicon-32x32.png") }}">
-      <link rel="icon" type="image/png" sizes="16x16" href="{{ asset("favicon/favicon-16x16.png") }}">
-      <link rel="manifest" href="{{ asset("favicon/site.webmanifest") }}">
-      <link rel="mask-icon" href="{{ asset("favicon/safari-pinned-tab.svg") }}" color="#5bbad5">
-      <meta name="msapplication-TileColor" content="#da532c">
-      <meta name="theme-color" content="#ffffff">
+		<link rel="apple-touch-icon" sizes="180x180" href="{{ asset("favicon/apple-touch-icon.png") }}">
+		<link rel="icon" type="image/png" sizes="32x32" href="{{ asset("favicon/favicon-32x32.png") }}">
+		<link rel="icon" type="image/png" sizes="16x16" href="{{ asset("favicon/favicon-16x16.png") }}">
+		<link rel="manifest" href="{{ asset("favicon/site.webmanifest") }}">
+		<link rel="mask-icon" href="{{ asset("favicon/safari-pinned-tab.svg") }}" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
 
-        <script src="{{ asset('assets/js/burger-menu.js') }}"></script>
-        <script src="{{ asset('assets/js/nav-close.js') }}"></script>
+		<script src="{{ asset('assets/js/burger-menu.js') }}"></script>
+		<script src="{{ asset('assets/js/nav-close.js') }}"></script>
 
-        <title>{% block title %}Bar Home{% endblock %}</title>
-        
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+		<title>
+			{% block title %}Bar Home
+			{% endblock %}
+		</title>
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
 
 
-    </head>
+	</head>
 
-    <body>
-        <header>
-          <nav>
-            <div class="nav-mob">
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-J52STY1FLG"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+    function gtag() {
+    dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-              <button class="burger">
-                <span class="bar"></span>
-              </button>
+    gtag('config', 'G-J52STY1FLG');
+	</script>
 
-              <div class="contact-nav contact-mob" id=" contact-button">
-                <a class="nav-linked" aria-current="page" href="{{ url('contact') }}">contact</a>
-              </div>
+	<body>
+		<header>
+			<nav>
+				<div class="nav-mob">
 
-            </div>
-            
-            <ul class="main-nav">
-              <li class="nav-item">
-                <a class="logo" href="{{ url('main')}}" id="logo-name">
-                  <p>
-                    Bar Home
-                  </p>
-                </a>
-              </li>
-              {% if app.user %}
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url('bar_browse') }}">Mon bar</a>
-                </li>
-              {% endif %}
-              {% if app.user %}
-              <p class="user-co">Hey {{ app.user.name|capitalize }} !!</p>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url('app_logout') }}">Se déconnecter</a>
-              </li>
-              {% else %}
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url('app_login') }}">Se connecter</a>
-              </li>
-              {% endif %}
+					<button class="burger">
+						<span class="bar"></span>
+					</button>
 
-              <li class="nav-item">
-                <a class="nav-link" id="contact" href="{{ url('contact') }}">Contact</a>
-              </li>
-            </ul>
-          </nav>
-        </header>
+					<div class="contact-nav contact-mob" id=" contact-button">
+						<a class="nav-linked" aria-current="page" href="{{ url('contact') }}">contact</a>
+					</div>
 
-        {% for message in app.flashes('error') %}
-			      <div class="alert-mess" role="alert">{{ message }}</div>
-		    {% endfor %}
+				</div>
 
-        {% for message in app.flashes('success') %}
-			    <div class="alert-mess" role="alert">{{ message }}</div>
-		    {% endfor %}
-        
-        <div class="wrapper">
+				<ul class="main-nav">
+					<li class="nav-item">
+						<a class="logo" href="{{ url('main')}}" id="logo-name">
+							<p>
+								Bar Home
+							</p>
+						</a>
+					</li>
+					{% if app.user %}
+						<li class="nav-item">
+							<a class="nav-link" href="{{ url('bar_browse') }}">Mon bar</a>
+						</li>
+					{% endif %}
+					{% if app.user %}
+						<p class="user-co">Hey
+							{{ app.user.name|capitalize }}
+							!!</p>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ url('app_logout') }}">Se déconnecter</a>
+						</li>
+					{% else %}
+						<li class="nav-item">
+							<a class="nav-link" href="{{ url('app_login') }}">Se connecter</a>
+						</li>
+					{% endif %}
 
-        {% block body %}{% endblock %}
-        </div>
-        <footer>   
-              <ul class="foot-list">		
-                  <li class="foot-link">
-                    <p>Développé par 
-                      <a href="https://sylvainsainteromane.com/" target="_blank">Sylvain Sainte Romane</a>
-                    </p>
-                  </li>
-                  <li class="foot-link">
-                    <p>© Bar Home 2022</p>
-                  </li>
-                  <li class="foot-link">
-                    <a href="{{ url('app_login') }}">Je me connecte</a>
-                  </li>
-              </ul>              
-        </footer>
+					<li class="nav-item">
+						<a class="nav-link" id="contact" href="{{ url('contact') }}">Contact</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
 
-    </body>
+		{% for message in app.flashes('error') %}
+			<div class="alert-mess" role="alert">{{ message }}</div>
+		{% endfor %}
 
-</html>
+		{% for message in app.flashes('success') %}
+			<div class="alert-mess" role="alert">{{ message }}</div>
+		{% endfor %}
+
+		<div class="wrapper"> {% block body %}{% endblock %}
+			</div>
+			<footer>
+				<ul class="foot-list">
+					<li class="foot-link">
+						<p>Développé par
+							<a href="https://sylvainsainteromane.com/" target="_blank">Sylvain Sainte Romane</a>
+						</p>
+					</li>
+					<li class="foot-link">
+						<p>© Bar Home 2022</p>
+					</li>
+					<li class="foot-link">
+						<a href="{{ url('app_login') }}">Je me connecte</a>
+					</li>
+				</ul>
+			</footer>
+
+		</body>
+
+	</html>
